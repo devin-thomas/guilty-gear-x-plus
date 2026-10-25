@@ -52,9 +52,11 @@ jobs:
           for v in ("SLPM_645.25", "SLPS_201.37"):
               r = json.load(open(f"progress/{v}/report.json"))
               for name, m in [("all", r["measures"])] + [(c["id"], c["measures"]) for c in r["categories"]]:
+                  # objdiff writes 64-bit counts as strings
+                  n = lambda k: int(m.get(k, 0))
                   print("| %s | %s | %d / %d | %d / %d (%.2f%%) |" % (
-                      v, name, m.get("matched_functions", 0), m.get("total_functions", 0),
-                      m.get("matched_code", 0), m.get("total_code", 0), m.get("matched_code_percent", 0)))
+                      v, name, n("matched_functions"), n("total_functions"),
+                      n("matched_code"), n("total_code"), float(m.get("matched_code_percent", 0))))
           PY
 
       - name: Upload the Korean report
