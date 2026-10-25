@@ -1,0 +1,39 @@
+/* Adapted from nathanialf/ico (MIT; e0881204, sce/libgcc/_fixunsdfdi.c): ee-gcc 2.9's newlib/libgcc as linked by both GGX discs. */
+/* libgcc.a member _fixunsdfdi.o */
+#include "libgcc2.h"
+
+typedef unsigned int USItype;
+
+typedef long long DItype;
+
+typedef unsigned long long UDItype;
+
+typedef double DFtype;
+
+#define WORD_SIZE 32
+#define HIGH_WORD_COEFF (((UDItype)1) << WORD_SIZE)
+
+DItype __fixunsdfdi(DFtype a)
+{
+    DFtype b;
+    UDItype v;
+
+    if (a < 0)
+        return 0;
+
+    /* Compute high word of result, as a flonum.  */
+    b = (a / HIGH_WORD_COEFF);
+    /* Convert that to fixed (but not to DItype!),
+       and shift it into the high word.  */
+    v = (USItype)b;
+    v <<= WORD_SIZE;
+    /* Remove high part from the DFtype, leaving the low part as flonum.  */
+    a -= (DFtype)v;
+    /* Convert that to fixed (but not to DItype!) and add it in.  */
+    if (a < 0)
+        v -= (USItype)(-a);
+    else
+        v += (USItype)a;
+
+    return v;
+}
