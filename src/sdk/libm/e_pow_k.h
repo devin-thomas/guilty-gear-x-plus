@@ -1,0 +1,32 @@
+/* e_pow.c's constants, kept in a header so each capsule of the build compiles them
+   (gcc folds a static const it can see; an extern would be loaded). */
+static const double bp[] = {1.0, 1.5,};
+static const double dp_h[] = { 0.0, 5.84962487220764160156e-01,};
+static const double dp_l[] = { 0.0, 1.35003920212974897128e-08,};
+static const double zero    =  0.0;
+static const double one	=  1.0;
+static const double two	=  2.0;
+static const double two53	=  9007199254740992.0;
+static const double huge	=  1.0e300;
+static const double tiny    =  1.0e-300;
+static const double L1  =  5.99999999999994648725e-01;
+static const double L2  =  4.28571428578550184252e-01;
+static const double L3  =  3.33333329818377432918e-01;
+static const double L4  =  2.72728123808534006489e-01;
+static const double L5  =  2.30660745775561754067e-01;
+static const double L6  =  2.06975017800338417784e-01;
+static const double P1   =  1.66666666666666019037e-01;
+static const double P2   = -2.77777777770155933842e-03;
+static const double P3   =  6.61375632143793436117e-05;
+static const double P4   = -1.65339022054652515390e-06;
+static const double P5   =  4.13813679705723846039e-08;
+static const double lg2  =  6.93147180559945286227e-01;
+static const double lg2_h  =  6.93147182464599609375e-01;
+static const double lg2_l  = -1.90465429995776804525e-09;
+static const double ovt =  8.0085662595372944372e-0017;
+static const double cp    =  9.61796693925975554329e-01;
+static const double cp_h  =  9.61796700954437255859e-01;
+static const double cp_l  = -7.02846165095275826516e-09;
+static const double ivln2    =  1.44269504088896338700e+00;
+static const double ivln2_h  =  1.44269502162933349609e+00;
+static const double ivln2_l  =  1.92596299112661746887e-08;

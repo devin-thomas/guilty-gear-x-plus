@@ -1,0 +1,3 @@
+# The matching build needs LF: CRLF breaks backslash-continued macros
+# (src/sdk/libm/fdlibm.h, src/sdk/newlib/fvwrite_k.h) and drops those functions to assembly.
+* text=auto eol=lf

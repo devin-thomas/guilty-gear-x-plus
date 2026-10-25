@@ -1,0 +1,5 @@
+splat64[mips]==0.50.1
+spimdisasm==1.42.4
+rabbitizer==1.16.2
+pyelftools==0.33
+PyYAML==6.0.3

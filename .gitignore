@@ -1,0 +1,25 @@
+# Fetched toolchain (scripts/fetch_toolchain.py): never committed
+/tools/
+
+# Your disc and anything built from it
+*.iso
+*.bin
+*.cue
+*.chd
+*.img
+SLPM_645.25
+SLPS_201.37
+/iso/
+
+# Build output: generated assembly, objects, linked ELFs
+/build/
+/work/
+/asm/
+*.o
+*.elf
+*.ld
+*.map
+
+# Python
+__pycache__/
+*.pyc
