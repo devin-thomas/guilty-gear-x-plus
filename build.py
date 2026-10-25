@@ -328,6 +328,11 @@ def main():
                     help='leave non-matching C functions as assembly, list them, and exit 1 at the end')
     ap.add_argument('--no-cache', action='store_true',
                     help='re-verify every function even if its inputs are unchanged')
+    ap.add_argument('--objdiff', action='store_true',
+                    help='after a byte-identical build, write <work>/objdiff.json and its objects '
+                         '(scripts/objdiff_units.py)')
+    ap.add_argument('--objdiff-cli', type=Path,
+                    help='with --objdiff: also run objdiff-cli report generate into <work>/report.json')
     args = ap.parse_args()
     t = TARGETS[args.target]
     elf, work, bu = args.elf.resolve(), args.work.resolve(), args.binutils.resolve()
@@ -633,6 +638,9 @@ def main():
     report['tu_data_left_in_bins'] = data_skipped
     (work / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps({k: v for k, v in report.items() if k != 'c_function_names'}, indent=2))
+    if args.objdiff:
+        import objdiff_units   # noqa: E402
+        objdiff_units.emit(work, args.target, bu, args.objdiff_cli)
     if failed:
         sys.exit(f'{len(failed)} C functions did not match and were left as assembly: {failed}')
 
