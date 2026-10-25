@@ -1,0 +1,72 @@
+# ByteMatch (bytematch.dev) reads objdiff's report.json
+# from artifacts named "<VERSION>_report", from successful push runs on the
+# default branch. This job does not build the game: the build needs the disc's
+# executable, which can't be in the repo. The reports are made locally from a
+# byte-identical build (build.py --objdiff --objdiff-cli) and committed under
+# progress/. They hold names, addresses, sizes and percentages, no game bytes.
+# This job checks that they are current, validates them with a pinned
+# objdiff-cli, and uploads them.
+name: Progress report
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Fails if src/, include/, the configs or the build scripts changed since the
+      # reports were made, or if a report was edited by hand.
+      - name: Check the committed reports are current
+        run: python scripts/progress_stamp.py check progress/stamp.json
+
+      - name: Validate the reports with objdiff-cli
+        run: |
+          curl --fail --location --retry 3 -o "$RUNNER_TEMP/objdiff-cli" \
+            https://github.com/encounter/objdiff/releases/download/v3.8.3/objdiff-cli-linux-x86_64
+          echo "e823ae932a56c68dcd86b68d12f2268c953e0c027402162c8a6dfa6a00d65008  $RUNNER_TEMP/objdiff-cli" | sha256sum --check
+          chmod +x "$RUNNER_TEMP/objdiff-cli"
+          for v in SLPM_645.25 SLPS_201.37; do
+            "$RUNNER_TEMP/objdiff-cli" report changes "progress/$v/report.json" "progress/$v/report.json" \
+              -o "$RUNNER_TEMP/validate-$v.json"
+          done
+
+      - name: Summarise
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          print("| Disc | Category | Functions | Code bytes |")
+          print("| --- | --- | ---: | ---: |")
+          for v in ("SLPM_645.25", "SLPS_201.37"):
+              r = json.load(open(f"progress/{v}/report.json"))
+              for name, m in [("all", r["measures"])] + [(c["id"], c["measures"]) for c in r["categories"]]:
+                  print("| %s | %s | %d / %d | %d / %d (%.2f%%) |" % (
+                      v, name, m.get("matched_functions", 0), m.get("total_functions", 0),
+                      m.get("matched_code", 0), m.get("total_code", 0), m.get("matched_code_percent", 0)))
+          PY
+
+      - name: Upload the Korean report
+        uses: actions/upload-artifact@v4
+        with:
+          name: SLPM_645.25_report
+          path: progress/SLPM_645.25/report.json
+          if-no-files-found: error
+
+      - name: Upload the Japanese report
+        uses: actions/upload-artifact@v4
+        with:
+          name: SLPS_201.37_report
+          path: progress/SLPS_201.37/report.json
+          if-no-files-found: error

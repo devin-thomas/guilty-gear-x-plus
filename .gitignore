@@ -9,6 +9,8 @@
 *.img
 SLPM_645.25
 SLPS_201.37
+!/progress/SLPM_645.25/
+!/progress/SLPS_201.37/
 /iso/
 
 # Build output: generated assembly, objects, linked ELFs
