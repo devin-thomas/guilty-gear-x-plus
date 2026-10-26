@@ -189,6 +189,13 @@ void Opt_SoundTest(int sw) {
     void (*stst_proc[6])() = { stst_mode, stst_bgm_vol, stst_bgm, stst_se, stst_voice, stst_exit };
     void (*stst_font_proc[6])() = { stst_font_mode, stst_font_bgm_vol, stst_font_bgm, stst_font_se, stst_font_voice, stst_font_exit };
     static HEADWORK mh = { 0, 64.0f, 112.0f, 0, 6, 0 };
+#ifdef GGX_PORT
+    /* mh.p keeps pointing at mp after Opt_SoundTest(0) returns. On the EE the
+       later calls put mp at the same stack address and fill it again; clang
+       drops that fill in calls that never read mp by name, so mh.p would read
+       a stale frame. One static copy reads as the EE's does. */
+    static
+#endif
     PARTS mp[6] = {
         { "MODE", 0.0f, 0.0f, 0 },
         { "BGM VOLUME", 0.0f, 48.0f, 0 },

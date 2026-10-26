@@ -1243,7 +1243,17 @@ void KakuseiEffectDraw3(CHARACTER_WORK *offset)
 
     p[1].y = (offset->ActTimer * 3 + 30.0f) * off.z;
     p[0].y = 0.0f;
+#ifdef GGX_PORT
+    /* The EE computes the first colour before the second argument updates alfa. */
+    {
+        u_int c1 = gStripGetFadeColor(alfa << 24 | 0xFFFFFF);
+        u_int c2 = gStripGetFadeColor(alfa = alfa << 24 | 0xC0C0FF);
+
+        CircleDraw(p, c1, c2, &off);
+    }
+#else
     CircleDraw(p, gStripGetFadeColor(alfa << 24 | 0xFFFFFF), gStripGetFadeColor(alfa = alfa << 24 | 0xC0C0FF), &off);
+#endif
     p[0].y = p[1].y;
     p[1].y *= 1.7f;
     CircleDraw(p, gStripGetFadeColor(alfa), gStripGetFadeColor(0x8080FF), &off);

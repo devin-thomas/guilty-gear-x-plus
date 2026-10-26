@@ -44,7 +44,7 @@ static void _GetGsDxDyOffset(int mode, int *dx, int *dy, int *dw, int *dh)
     __asm__ __volatile__("addiu $3, $0, 128\n\tsyscall 0" : : : "$3", "memory");
 }
 /* sceGsSetDefDispEnv (SDK 2.5, adds the 480p mode 0x50 and the offsets above):
-   kept in the split; a near C version is in work/rsdk/a/sceGsSetDefDispEnv_kr.near.c */
+   kept in the split; the near C (12 words off) is nonmatching/sceGsSetDefDispEnv_kr.c */
 #endif
 
 #ifdef VERSION_JP

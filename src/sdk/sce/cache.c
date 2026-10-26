@@ -3,9 +3,34 @@
 #include "libkernl_internal.h"
 #include "eekernel.h"
 
-/* _sceSDC: hand-written assembly, kept in the split */
+/* _sceSDC: walk all 64 lines of both ways of the data cache (4 KB per way).
+   For each line, read its tag (DXLTG, then TagLo) and, if the line's address
+   falls in [start, end], write it back and invalidate it (cache op 0x14,
+   DHWBIN). The cache instructions have no C spelling, so each sits in its
+   own asm statement, bracketed by sync as the EE manual asks. */
+void _sceSDC(int start, int end)
+{
+    int i;
+    int tag;
 
-/* C around the assembly loop: interrupts off while the lines are walked,
+    for (i = 0; i < 0x1000; i += 0x40) {
+        __asm__ __volatile__("sync\n\tcache 0x10, 0(%0)\n\tsync" : : "r"(i));
+        __asm__ __volatile__("mfc0 %0, $28" : "=r"(tag));
+        tag = (tag & 0xFFFFF000) + i;
+        if ((unsigned)tag >= (unsigned)start && (unsigned)tag <= (unsigned)end) {
+            __asm__ __volatile__("sync\n\tcache 0x14, 0(%0)\n\tsync" : : "r"(i));
+        }
+        __asm__ __volatile__("sync\n\tcache 0x10, 1(%0)\n\tsync" : : "r"(i));
+        __asm__ __volatile__("mfc0 %0, $28" : "=r"(tag));
+        tag = (tag & 0xFFFFF000) + i;
+        if ((unsigned)tag >= (unsigned)start && (unsigned)tag <= (unsigned)end) {
+            __asm__ __volatile__("sync\n\tcache 0x14, 1(%0)\n\tsync" : : "r"(i));
+        }
+        __asm__ __volatile__("sync");
+    }
+}
+
+/* Interrupts off while the loop above walks the lines,
    if they were on */
 void SyncDCache(void *start, void *end)
 {
@@ -27,9 +52,34 @@ void iSyncDCache(int start, int end)
 {
     _sceSDC(start & 0xFFFFFFC0, end & 0xFFFFFFC0);
 }
-/* _sceIDC: hand-written assembly, kept in the split */
+/* _sceIDC: walk all 64 lines of both ways of the data cache (4 KB per way).
+   For each line, read its tag (DXLTG, then TagLo) and, if the line's address
+   falls in [start, end], invalidate it (cache op 0x16, DHIN). The cache
+   instructions have no C spelling, so each sits in its own asm statement,
+   bracketed by sync as the EE manual asks. */
+void _sceIDC(int start, int end)
+{
+    int i;
+    int tag;
 
-/* C around the assembly loop: interrupts off while the lines are walked,
+    for (i = 0; i < 0x1000; i += 0x40) {
+        __asm__ __volatile__("sync\n\tcache 0x10, 0(%0)\n\tsync" : : "r"(i));
+        __asm__ __volatile__("mfc0 %0, $28" : "=r"(tag));
+        tag = (tag & 0xFFFFF000) + i;
+        if ((unsigned)tag >= (unsigned)start && (unsigned)tag <= (unsigned)end) {
+            __asm__ __volatile__("sync\n\tcache 0x16, 0(%0)\n\tsync" : : "r"(i));
+        }
+        __asm__ __volatile__("sync\n\tcache 0x10, 1(%0)\n\tsync" : : "r"(i));
+        __asm__ __volatile__("mfc0 %0, $28" : "=r"(tag));
+        tag = (tag & 0xFFFFF000) + i;
+        if ((unsigned)tag >= (unsigned)start && (unsigned)tag <= (unsigned)end) {
+            __asm__ __volatile__("sync\n\tcache 0x16, 1(%0)\n\tsync" : : "r"(i));
+        }
+        __asm__ __volatile__("sync");
+    }
+}
+
+/* Interrupts off while the loop above walks the lines,
    if they were on */
 void InvalidDCache(void *start, void *end)
 {

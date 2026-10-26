@@ -14,6 +14,11 @@ initializer in src/ggxeuc/<tu>.c, static or not (compiled once with
 range is cut out of the bin and filled from the compiled object, so the
 bytes are checked too.
 
+A TU in GENERATED has no C: a script of ours writes its assembly from a
+table of names and numbers (scripts/klib.py, the Sony kernel's syscall
+stubs). Each generated function is assembled on its own, byte-checked against
+the original at its address, and linked in place of the split's copy.
+
 Generated asm, bins and build output go to --work, never into git.
 """
 import argparse
@@ -36,6 +41,7 @@ sys.path.insert(0, str(HERE / 'scripts'))
 import csplit   # noqa: E402
 import verify   # noqa: E402
 import sdkprofile   # noqa: E402
+import klib   # noqa: E402
 from datafrag import kind_of   # noqa: E402
 
 TARGETS = {
@@ -47,6 +53,8 @@ TARGETS = {
                basename='SLPM_645.25', gp=0x5d40f0, as_dir=verify.KR_AS_DIR),
 }
 FLAGS = ['-EL', '-march=5900', '-mabi=eabi', '-no-pad-sections']
+# TUs whose assembly is generated from a committed table: TU name -> module with functions(target)
+GENERATED = {klib.TU: klib}
 DATA_SECTIONS = ('.rodata', '.data', '.sdata', '.lit4', '.lit8')
 COP2_LINE = re.compile(r'^(\s*/\* [0-9A-F]+ [0-9A-F]+ ([0-9A-F]{8}) \*/\s+)(v[a-z0-9.]+\s.*|vnop|vwaitq)$',
                        re.M)
@@ -311,6 +319,34 @@ def prune(v):
             p.unlink(missing_ok=True)
 
 
+def generated_functions(gen, tu, target, work, as_, venv, tu_range, run):
+    """Assemble each function `gen` writes for TU `tu` into build/src/<tu>/<name>.o and
+    byte-check it against the original at its address. Returns (rows, failed): the
+    linker-script line of each match, and the names that differ (left as the split's asm)."""
+    rows, failed = {}, []
+    lo, hi = tu_range[tu]
+    d = work / 'build' / 'src' / tu
+    d.mkdir(parents=True, exist_ok=True)
+    for fname, text in gen.functions(target):
+        addrs = sorted(venv.funcs.get(fname, ())) or ([venv.syms[fname]] if fname in venv.syms else [])
+        addr = next((a for a in addrs if lo <= a < hi), None)
+        if addr is None:
+            raise SystemExit(f'{tu}: {fname} has no address in this TU')
+        src, fobj = d / f'{fname}.s', d / f'{fname}.o'
+        src.write_text(text)
+        run([as_, *FLAGS, '-o', fobj, src])
+        with fobj.open('rb') as f:
+            e = ELFFile(f)
+            code = e.get_section_by_name(f'.text.{fname}').data()
+            relocated = any(sec.name.endswith(f'.text.{fname}') and sec['sh_type'] in ('SHT_REL', 'SHT_RELA')
+                            for sec in e.iter_sections())
+        if relocated or not code or venv.read(addr, len(code)) != code:
+            failed.append(fname)
+            continue
+        rows[fname] = f'{fobj.relative_to(work).as_posix()}(.text.{fname});'
+    return rows, failed
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--target', choices=TARGETS, default='jp')
@@ -387,6 +423,7 @@ def main():
             h.update(str(f.relative_to(HERE)).encode() + f.read_bytes())
     stamp = h.hexdigest()
     ported, carves, commons, nobits, solved, failed, data_skipped = [], [], {}, [], {}, [], []
+    generated = []          # the part of `ported` assembled from a GENERATED table, not compiled
     # each TU's address range: a repeated function name (a file static) resolves to the copy in it
     tu_range = {name: (off + 0xff000, (tus[k + 1][0] if k + 1 < len(tus) else off + 0x100000) + 0xff000)
                 for k, (off, kind, name) in enumerate(tus)}
@@ -394,6 +431,42 @@ def main():
         obj = work / 'build' / (f'asm/{name}.s.o' if kind == 'asm' else f'src/{name}.c.o')
         obj.parent.mkdir(parents=True, exist_ok=True)
         src_c = HERE / 'src' / f'{name}.c'
+
+        def link_parts(rows, keep_pad):
+            """Assemble the split TU minus the functions in `rows` into `obj`, and put
+            those functions' objects in its place in the linker script."""
+            nonlocal ld_text
+            asm, order = split_tu((work / f'asm/{name}.s').read_text(), set(rows), keep_pad=keep_pad)
+            missing = set(rows) - set(order)
+            if missing:
+                raise SystemExit(f'{name}: functions not found in the split: {sorted(missing)}')
+            parts = work / f'build/src/{name}.parts.s'
+            parts.parent.mkdir(parents=True, exist_ok=True)
+            parts.write_text(asm)
+            run([as_, *FLAGS, '-I', 'include', '-o', obj, f'build/src/{name}.parts.s'])
+            here = obj.relative_to(work).as_posix()
+            lines = [f'{here}({x});' if x.startswith('.text.p') else rows[x] for x in order]
+            old = f'{here}(.text);'
+            if old not in ld_text:
+                raise SystemExit(f'{name}: no input line in the linker script')
+            ld_text = ld_text.replace(old, '\n        '.join(lines))
+
+        if name in GENERATED and venv is not None:
+            # assembly a script writes from a committed table (scripts/klib.py)
+            rows, bad = generated_functions(GENERATED[name], name, args.target, work, as_, venv, tu_range, run)
+            for fname in bad:
+                msg = f'{name}: generated {fname} does not match {base}'
+                if not args.keep_going:
+                    raise SystemExit(msg)
+                print(msg, flush=True)
+                failed.append(fname)
+            if rows:
+                link_parts(rows, keep_pad=True)
+            else:
+                run([as_, *FLAGS, '-I', 'include', '-o', obj, f'asm/{name}.s'])
+            ported += list(rows)
+            generated += list(rows)
+            continue
         if kind == 'asm' or venv is None or not src_c.exists():
             # all-asm TU: splat's full-TU disassembly (make_full_disasm_for_code)
             run([as_, *FLAGS, '-I', 'include', '-o', obj, f'asm/{name}.s'])
@@ -528,17 +601,7 @@ def main():
                 # the functions still reach the variables by symbol; the bytes stay in the bins
                 print(f'{e} -> data left in the bins', flush=True)
                 data_skipped.append(name)
-        asm, order = split_tu((work / f'asm/{name}.s').read_text(), set(rows), keep_pad=sdk_tu)
-        missing = set(rows) - set(order)
-        if missing:
-            raise SystemExit(f'{name}: C functions not found in the split: {sorted(missing)}')
-        (work / f'build/src/{name}.parts.s').write_text(asm)
-        run([as_, *FLAGS, '-I', 'include', '-o', obj, f'build/src/{name}.parts.s'])
-        lines = [f'build/src/{name}.c.o({x});' if x.startswith('.text.p') else rows[x] for x in order]
-        old = f'build/src/{name}.c.o(.text);'
-        if old not in ld_text:
-            raise SystemExit(f'{name}: no input line in the linker script')
-        ld_text = ld_text.replace(old, '\n        '.join(lines))
+        link_parts(rows, keep_pad=sdk_tu)
         ported += list(rows)
 
     # Opaque bins; cut out the ranges that compiled data fills.
@@ -635,6 +698,8 @@ def main():
               'c_functions': len(ported), 'c_data_ranges': len(carves),
               'c_function_names': ported}
     report['c_functions_not_linked'] = failed
+    # c_function_names counts these too: functions assembled from a committed table, not C
+    report['generated_asm_functions'] = generated
     report['tu_data_left_in_bins'] = data_skipped
     (work / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps({k: v for k, v in report.items() if k != 'c_function_names'}, indent=2))

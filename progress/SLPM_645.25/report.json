@@ -1,18 +1,18 @@
 {
   "measures": {
-    "fuzzy_match_percent": 99.12353,
+    "fuzzy_match_percent": 99.41829,
     "total_code": "860336",
-    "matched_code": "846236",
-    "matched_code_percent": 98.36111,
+    "matched_code": "848772",
+    "matched_code_percent": 98.655876,
     "matched_data_percent": 100.0,
     "total_functions": 4259,
-    "matched_functions": 4083,
-    "matched_functions_percent": 95.86758,
-    "complete_code": "850688",
-    "complete_code_percent": 98.87858,
+    "matched_functions": 4223,
+    "matched_functions_percent": 99.15473,
+    "complete_code": "853512",
+    "complete_code_percent": 99.206825,
     "complete_data_percent": 100.0,
     "total_units": 237,
-    "complete_units": 221
+    "complete_units": 223
   },
   "units": [
     {
@@ -36721,24 +36721,35 @@
     {
       "name": "sdk/asm/klib",
       "measures": {
+        "fuzzy_match_percent": 100.0,
         "total_code": "2208",
+        "matched_code": "2208",
+        "matched_code_percent": 100.0,
         "matched_data_percent": 100.0,
         "total_functions": 138,
+        "matched_functions": 138,
+        "matched_functions_percent": 100.0,
+        "complete_code": "2208",
+        "complete_code_percent": 100.0,
         "complete_data_percent": 100.0,
-        "total_units": 1
+        "total_units": 1,
+        "complete_units": 1
       },
       "sections": [
         {
           "name": ".bss",
+          "fuzzy_match_percent": 100.0,
           "metadata": {}
         },
         {
           "name": ".data",
+          "fuzzy_match_percent": 100.0,
           "metadata": {}
         },
         {
           "name": ".text",
           "size": "2208",
+          "fuzzy_match_percent": 100.0,
           "metadata": {}
         }
       ],
@@ -36746,834 +36757,973 @@
         {
           "name": "RFU000_FullReset",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "0"
         },
         {
           "name": "ResetEE",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "16"
         },
         {
           "name": "SetGsCrt",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "32"
         },
         {
           "name": "RFU003",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "48"
         },
         {
           "name": "_Exit",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "64"
         },
         {
           "name": "RFU005",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "80"
         },
         {
           "name": "_LoadExecPS2",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "96"
         },
         {
           "name": "_ExecPS2",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "112"
         },
         {
           "name": "RFU008",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "128"
         },
         {
           "name": "RFU009",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "144"
         },
         {
           "name": "AddSbusIntcHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "160"
         },
         {
           "name": "RemoveSbusIntcHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "176"
         },
         {
           "name": "Interrupt2Iop",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "192"
         },
         {
           "name": "SetVTLBRefillHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "208"
         },
         {
           "name": "SetVCommonHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "224"
         },
         {
           "name": "SetVInterruptHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "240"
         },
         {
           "name": "AddIntcHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "256"
         },
         {
           "name": "AddIntcHandler2",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "272"
         },
         {
           "name": "RemoveIntcHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "288"
         },
         {
           "name": "AddDmacHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "304"
         },
         {
           "name": "AddDmacHandler2",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "320"
         },
         {
           "name": "RemoveDmacHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "336"
         },
         {
           "name": "_EnableIntc",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "352"
         },
         {
           "name": "_DisableIntc",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "368"
         },
         {
           "name": "_EnableDmac",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "384"
         },
         {
           "name": "_DisableDmac",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "400"
         },
         {
           "name": "SetAlarm",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "416"
         },
         {
           "name": "ReleaseAlarm",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "432"
         },
         {
           "name": "_iEnableIntc",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "448"
         },
         {
           "name": "_iDisableIntc",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "464"
         },
         {
           "name": "_iEnableDmac",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "480"
         },
         {
           "name": "_iDisableDmac",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "496"
         },
         {
           "name": "iSetAlarm",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "512"
         },
         {
           "name": "iReleaseAlarm",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "528"
         },
         {
           "name": "CreateThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "544"
         },
         {
           "name": "DeleteThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "560"
         },
         {
           "name": "StartThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "576"
         },
         {
           "name": "ExitThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "592"
         },
         {
           "name": "ExitDeleteThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "608"
         },
         {
           "name": "TerminateThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "624"
         },
         {
           "name": "iTerminateThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "640"
         },
         {
           "name": "DisableDispatchThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "656"
         },
         {
           "name": "EnableDispatchThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "672"
         },
         {
           "name": "ChangeThreadPriority",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "688"
         },
         {
           "name": "iChangeThreadPriority",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "704"
         },
         {
           "name": "RotateThreadReadyQueue",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "720"
         },
         {
           "name": "_iRotateThreadReadyQueue",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "736"
         },
         {
           "name": "ReleaseWaitThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "752"
         },
         {
           "name": "iReleaseWaitThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "768"
         },
         {
           "name": "GetThreadId",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "784"
         },
         {
           "name": "ReferThreadStatus",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "800"
         },
         {
           "name": "iReferThreadStatus",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "816"
         },
         {
           "name": "SleepThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "832"
         },
         {
           "name": "WakeupThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "848"
         },
         {
           "name": "_iWakeupThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "864"
         },
         {
           "name": "CancelWakeupThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "880"
         },
         {
           "name": "iCancelWakeupThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "896"
         },
         {
           "name": "SuspendThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "912"
         },
         {
           "name": "_iSuspendThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "928"
         },
         {
           "name": "ResumeThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "944"
         },
         {
           "name": "iResumeThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "960"
         },
         {
           "name": "JoinThread",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "976"
         },
         {
           "name": "RFU060",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "992"
         },
         {
           "name": "RFU061",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1008"
         },
         {
           "name": "EndOfHeap",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1024"
         },
         {
           "name": "RFU063",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1040"
         },
         {
           "name": "CreateSema",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1056"
         },
         {
           "name": "DeleteSema",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1072"
         },
         {
           "name": "SignalSema",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1088"
         },
         {
           "name": "iSignalSema",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1104"
         },
         {
           "name": "WaitSema",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1120"
         },
         {
           "name": "PollSema",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1136"
         },
         {
           "name": "iPollSema",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1152"
         },
         {
           "name": "ReferSemaStatus",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1168"
         },
         {
           "name": "iReferSemaStatus",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1184"
         },
         {
           "name": "RFU073",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1200"
         },
         {
           "name": "SetOsdConfigParam",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1216"
         },
         {
           "name": "GetOsdConfigParam",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1232"
         },
         {
           "name": "GetGsHParam",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1248"
         },
         {
           "name": "GetGsVParam",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1264"
         },
         {
           "name": "SetGsHParam",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1280"
         },
         {
           "name": "SetGsVParam",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1296"
         },
         {
           "name": "RFU080_CreateEventFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1312"
         },
         {
           "name": "RFU081_DeleteEventFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1328"
         },
         {
           "name": "RFU082_SetEventFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1344"
         },
         {
           "name": "RFU083_iSetEventFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1360"
         },
         {
           "name": "RFU084_ClearEventFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1376"
         },
         {
           "name": "RFU085_iClearEventFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1392"
         },
         {
           "name": "RFU086_WaitEvnetFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1408"
         },
         {
           "name": "RFU087_PollEvnetFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1424"
         },
         {
           "name": "RFU088_iPollEvnetFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1440"
         },
         {
           "name": "RFU089_ReferEventFlagStatus",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1456"
         },
         {
           "name": "RFU090_iReferEventFlagStatus",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1472"
         },
         {
           "name": "RFU091",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1488"
         },
         {
           "name": "EnableIntcHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1504"
         },
         {
           "name": "iEnableIntcHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1520"
         },
         {
           "name": "DisableIntcHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1536"
         },
         {
           "name": "iDisableIntcHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1552"
         },
         {
           "name": "EnableDmacHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1568"
         },
         {
           "name": "iEnableDmacHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1584"
         },
         {
           "name": "DisableDmacHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1600"
         },
         {
           "name": "iDisableDmacHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1616"
         },
         {
           "name": "KSeg0",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1632"
         },
         {
           "name": "EnableCache",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1648"
         },
         {
           "name": "DisableCache",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1664"
         },
         {
           "name": "GetCop0",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1680"
         },
         {
           "name": "FlushCache",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1696"
         },
         {
           "name": "CpuConfig",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1712"
         },
         {
           "name": "iGetCop0",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1728"
         },
         {
           "name": "iFlushCache",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1744"
         },
         {
           "name": "iCpuConfig",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1760"
         },
         {
           "name": "sceSifStopDma",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1776"
         },
         {
           "name": "SetCPUTimerHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1792"
         },
         {
           "name": "SetCPUTimer",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1808"
         },
         {
           "name": "SetOsdConfigParam2",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1824"
         },
         {
           "name": "GetOsdConfigParam2",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1840"
         },
         {
           "name": "GsGetIMR",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1856"
         },
         {
           "name": "iGsGetIMR",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1872"
         },
         {
           "name": "GsPutIMR",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1888"
         },
         {
           "name": "iGsPutIMR",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1904"
         },
         {
           "name": "SetPgifHandler",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1920"
         },
         {
           "name": "SetVSyncFlag",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1936"
         },
         {
           "name": "RFU116",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1952"
         },
         {
           "name": "_print",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1968"
         },
         {
           "name": "sceSifDmaStat",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "1984"
         },
         {
           "name": "isceSifDmaStat",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2000"
         },
         {
           "name": "sceSifSetDma",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2016"
         },
         {
           "name": "isceSifSetDma",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2032"
         },
         {
           "name": "sceSifSetDChain",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2048"
         },
         {
           "name": "isceSifSetDChain",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2064"
         },
         {
           "name": "sceSifSetReg",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2080"
         },
         {
           "name": "sceSifGetReg",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2096"
         },
         {
           "name": "_ExecOSD",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2112"
         },
         {
           "name": "Deci2Call",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2128"
         },
         {
           "name": "PSMode",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2144"
         },
         {
           "name": "MachineType",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2160"
         },
         {
           "name": "GetMemorySize",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2176"
         },
         {
           "name": "_InitTLB",
           "size": "16",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "2192"
         }
       ],
       "metadata": {
-        "complete": false,
+        "complete": true,
+        "source_path": "src/sdk/asm/klib.tbl",
         "progress_categories": [
           "sdk"
         ]
@@ -37739,16 +37889,19 @@
     {
       "name": "sdk/sce/cache",
       "measures": {
-        "fuzzy_match_percent": 46.753246,
+        "fuzzy_match_percent": 100.0,
         "total_code": "616",
-        "matched_code": "288",
-        "matched_code_percent": 46.753246,
+        "matched_code": "616",
+        "matched_code_percent": 100.0,
         "matched_data_percent": 100.0,
         "total_functions": 6,
-        "matched_functions": 4,
-        "matched_functions_percent": 66.66667,
+        "matched_functions": 6,
+        "matched_functions_percent": 100.0,
+        "complete_code": "616",
+        "complete_code_percent": 100.0,
         "complete_data_percent": 100.0,
-        "total_units": 1
+        "total_units": 1,
+        "complete_units": 1
       },
       "sections": [
         {
@@ -37764,7 +37917,7 @@
         {
           "name": ".text",
           "size": "640",
-          "fuzzy_match_percent": 46.753246,
+          "fuzzy_match_percent": 100.0,
           "metadata": {}
         }
       ],
@@ -37772,6 +37925,7 @@
         {
           "name": "_sceSDC",
           "size": "164",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "0"
         },
@@ -37792,6 +37946,7 @@
         {
           "name": "_sceIDC",
           "size": "164",
+          "fuzzy_match_percent": 100.0,
           "metadata": {},
           "address": "320"
         },
@@ -37811,7 +37966,7 @@
         }
       ],
       "metadata": {
-        "complete": false,
+        "complete": true,
         "source_path": "src/sdk/sce/cache.c",
         "progress_categories": [
           "sdk"
@@ -40193,19 +40348,19 @@
       "id": "sdk",
       "name": "Sony SDK and C runtime",
       "measures": {
-        "fuzzy_match_percent": 94.07992,
+        "fuzzy_match_percent": 96.20267,
         "total_code": "119468",
-        "matched_code": "105836",
-        "matched_code_percent": 88.58941,
+        "matched_code": "108372",
+        "matched_code_percent": 90.71216,
         "matched_data_percent": 100.0,
         "total_functions": 640,
-        "matched_functions": 468,
-        "matched_functions_percent": 73.125,
-        "complete_code": "110288",
-        "complete_code_percent": 92.31593,
+        "matched_functions": 608,
+        "matched_functions_percent": 95.0,
+        "complete_code": "113112",
+        "complete_code_percent": 94.67975,
         "complete_data_percent": 100.0,
         "total_units": 110,
-        "complete_units": 95
+        "complete_units": 97
       }
     },
     {

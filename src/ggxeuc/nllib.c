@@ -4,7 +4,12 @@
 static float sin;
 static float cos;
 
+#ifdef GGX_PORT
+#include "port/vu0.h"
+#endif
+
 void nlUnitMatrix(void) {
+#ifndef GGX_PORT
     __asm__ __volatile__(
         ".set noreorder\n"
         "vmulw.xyzw  $vf1, $vf0, $vf0w\n"
@@ -19,11 +24,22 @@ void nlUnitMatrix(void) {
         "sqc2        $vf4, 0x0(%0)\n"
         ".set reorder\n"
         : : "r"(&mat));
+#else
+    {
+        float *m = (float *)&mat;
+        int i;
+
+        for (i = 0; i < 16; i++) {
+            m[i] = (i % 5 == 0) ? 1.0f : 0.0f;
+        }
+    }
+#endif
 }
 
 void nlRotateAX(u_short r) {
     sin = nlSin(r);
     cos = nlCos(r);
+#ifndef GGX_PORT
     __asm__ __volatile__(
         ".set noreorder\n"
         "ctc2        %0, $vi21\n"
@@ -38,11 +54,15 @@ void nlRotateAX(u_short r) {
         "sqc2        $vf3, 0x20(%2)\n"
         ".set reorder\n"
         : : "r"(*(int *)&sin), "r"(*(int *)&cos), "r"(&mat));
+#else
+    ggx_port_vu0_rotate((float *)&mat + 4, (float *)&mat + 8, sin, cos);
+#endif
 }
 
 void nlRotateAY(u_short r) {
     sin = nlSin(r);
     cos = nlCos(r);
+#ifndef GGX_PORT
     __asm__ __volatile__(
         ".set noreorder\n"
         "ctc2        %0, $vi21\n"
@@ -57,11 +77,15 @@ void nlRotateAY(u_short r) {
         "sqc2        $vf3, 0x20(%2)\n"
         ".set reorder\n"
         : : "r"(*(int *)&sin), "r"(*(int *)&cos), "r"(&mat));
+#else
+    ggx_port_vu0_rotate((float *)&mat + 8, (float *)&mat + 0, sin, cos);
+#endif
 }
 
 void nlRotateAZ(u_short r) {
     sin = nlSin(r);
     cos = nlCos(r);
+#ifndef GGX_PORT
     __asm__ __volatile__(
         ".set noreorder\n"
         "ctc2        %0, $vi21\n"
@@ -76,9 +100,13 @@ void nlRotateAZ(u_short r) {
         "sqc2        $vf3, 0x10(%2)\n"
         ".set reorder\n"
         : : "r"(*(int *)&sin), "r"(*(int *)&cos), "r"(&mat));
+#else
+    ggx_port_vu0_rotate((float *)&mat + 0, (float *)&mat + 4, sin, cos);
+#endif
 }
 
 void nlCalcPoint(NL_POINT3 *p1, NL_POINT3 *p2) {
+#ifndef GGX_PORT
     __asm__ __volatile__(
         ".set noreorder\n"
         "lqc2         $vf1, 0x0(%0)\n"
@@ -95,6 +123,16 @@ void nlCalcPoint(NL_POINT3 *p1, NL_POINT3 *p2) {
         "sqc2         $vf3, 0x0(%1)\n"
         ".set reorder\n"
         : : "r"(p1), "r"(p2), "r"(&mat));
+#else
+    {
+        float *m = (float *)&mat;
+        float x = p1->x, y = p1->y, z = p1->z;
+
+        p2->x = m[0] * x + m[4] * y + m[8] * z + m[12];
+        p2->y = m[1] * x + m[5] * y + m[9] * z + m[13];
+        p2->z = m[2] * x + m[6] * y + m[10] * z + m[14];
+    }
+#endif
 }
 
 void chk_select_reset(int side) {
