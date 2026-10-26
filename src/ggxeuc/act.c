@@ -277,6 +277,10 @@ void af_ROT(CHARACTER_WORK *offset, TACTNORMAL *ip) {
 }
 
 void RqLndEff();
+#ifdef GGX_PORT
+/* af_FIXEDEFFECT calls RqLndEff(CHARACTER_WORK *) with no arguments; offset is still in a0. */
+#define RqLndEff() RqLndEff(offset)
+#endif
 void ReqCmnSE_JumpLand(CHARACTER_WORK *offset);
 CHARACTER_WORK *EffectCreate(CHARACTER_WORK *poffset, unsigned short idno, CREATE_ARG *arg);
 CHARACTER_WORK *ObjectCreateA(CHARACTER_WORK *poffset, unsigned short idno, CREATE_ARG *arg);

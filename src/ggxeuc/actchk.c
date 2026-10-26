@@ -726,6 +726,12 @@ int ExciteCommnadCheck(CHARACTER_WORK *offset)
 }
 
 int IsTrgFuckin();
+#ifdef GGX_PORT
+/* Both callers call IsTrgFuckin(CHARACTER_WORK *) with no arguments as their first call, so
+   offset is still in a0. (After the second declaration: the port compiles every declaration
+   before every function body, see platforms/tools/port_tu.py.) */
+#define IsTrgFuckin() IsTrgFuckin(offset)
+#endif
 int IsStdRight(CHARACTER_WORK *offset);
 void SL_RespectCommnadCheck(CHARACTER_WORK *offset);
 void KY_RespectCommnadCheck(CHARACTER_WORK *offset);
@@ -830,7 +836,12 @@ int SpecialAttackCheck(CHARACTER_WORK *offset)
 
     if (!offset->ply->ArtsSeal) {
         Func = functb[offset->idno];
+#ifdef GGX_PORT
+        /* the EE call passes nothing, but offset is still in a0 */
+        ret = Func(offset);
+#else
         ret = Func();
+#endif
         if (ret) {
             if (offset->actst & 0x8000) {
                 font_entry(offset->padid, "REVERSAL");

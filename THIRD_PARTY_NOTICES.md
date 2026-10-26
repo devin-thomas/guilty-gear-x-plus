@@ -14,6 +14,24 @@ These will be dependencies fetched by the port's build, not copied into this rep
 
 Binary releases of the port will include each library's licence text next to the executable.
 
+## Code vendored in `platforms/third_party/`
+
+The port reads CHD disc images with [libchdr](https://github.com/rtissera/libchdr), copied unchanged into `platforms/third_party/libchdr/` from commit `47d79415` with the decoders it bundles. Each keeps its licence text beside it; `platforms/third_party/libchdr/VENDORED.md` lists what was copied.
+
+| Project | Licence | Licence text |
+| --- | --- | --- |
+| libchdr | BSD 3-Clause | `LICENSE.txt` |
+| LZMA SDK 26.02 (decoder) | public domain | `deps/lzma-26.02/LICENSE` |
+| miniz 3.1.2 | MIT | top of `deps/miniz-3.1.2/miniz.c` |
+| Zstandard 1.5.7 (single-file decoder) | BSD (zstd is dual BSD/GPLv2; used under BSD) | `deps/zstd-1.5.7/LICENSE` |
+| dr_flac | public domain or MIT-0 | end of `include/dr_libs/dr_flac.h` |
+
+The State Hash (`games/ggx-port/STATE-HASH.md`) uses [xxHash](https://github.com/Cyan4973/xxHash) 0.8.3's `xxhash.h`, copied unchanged into `platforms/third_party/xxhash/`.
+
+| Project | Licence | Licence text |
+| --- | --- | --- |
+| xxHash 0.8.3 (`xxhash.h`) | BSD 2-Clause | `platforms/third_party/xxhash/LICENSE` |
+
 ## Code in `src/sdk/` under its own terms
 
 `src/sdk/` rebuilds the Sony SDK libraries and the C runtime that the discs link. Most of it was written from the discs for this project and is CC0. The files below say where they come from in their first comment, and they keep their upstream terms:

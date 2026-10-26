@@ -10,6 +10,11 @@ typedef struct {
 extern GAMEKEY GameKey[];
 extern GAMEKEY pads[];
 int GetCPUFlag();
+#ifdef GGX_PORT
+/* Every call below is the first in a function whose first parameter is offset,
+   so GetCPUFlag(CHARACTER_WORK *) finds that offset still in a0. */
+#define GetCPUFlag() GetCPUFlag(offset)
+#endif
 
 typedef struct {
     u_char key;

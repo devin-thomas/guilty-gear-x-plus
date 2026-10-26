@@ -12,7 +12,8 @@ Per splat segment (TU) in the work dir's frozen splat.yaml:
   the original code, so it stays in the work dir like everything else there.
 - base `objdiff/base/<tu>.o`: every matched function's object that build.py
   linked (`build/src/<tu>/<function>.o`), combined with `ld -r`. These are the
-  exact objects in the byte-identical ELF. A TU with no linked C has no base.
+  exact objects in the byte-identical ELF: compiled C, or for sdk/asm/klib the
+  stubs build.py assembles from src/sdk/asm/klib.tbl. A TU with neither has no base.
 
 objdiff.json sits in the work dir, so open the work dir as the project in the
 objdiff GUI, or run `objdiff-cli report generate -p <work>`. Unit names are the
@@ -83,7 +84,8 @@ def emit(work, target, binutils, objdiff_cli=None, report=None):
         records = RECORD.findall(asm.read_text())
         objs = []
         fdir = work / 'build' / 'src' / name
-        if kind != 'asm' and fdir.is_dir():
+        if fdir.is_dir():
+            # C, or (an asm TU) assembly build.py generated from a table (scripts/klib.py).
             # _data.o is the TU's compiled data; its bytes are checked by build.py, not here
             objs = sorted(p for p in fdir.glob('*.o') if p.stem in linked and p.name != '_data.o')
         unit = {'name': name, 'target_path': str(tobj.relative_to(work))}
@@ -95,9 +97,10 @@ def emit(work, target, binutils, objdiff_cli=None, report=None):
         matched = {p.stem for p in objs}
         meta = {'complete': bool(records) and all(r in matched for r in records),
                 'progress_categories': [group(name)]}
-        src = HERE / 'src' / f'{name}.c'
-        if src.exists():
-            meta['source_path'] = f'src/{name}.c'
+        for ext in ('.c', '.tbl'):          # .tbl: the table scripts/klib.py generates the TU from
+            if (HERE / 'src' / f'{name}{ext}').exists():
+                meta['source_path'] = f'src/{name}{ext}'
+                break
         unit['metadata'] = meta
         if group(name) == 'game':
             unit['scratch'] = dict(SCRATCH)

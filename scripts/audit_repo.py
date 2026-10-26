@@ -16,7 +16,10 @@ a plain directory) for:
   (the largest game table in src/ has 490), or a run of 2,000+ base64/hex
   characters;
 - compiler dumps (gcc -da RTL, .i preprocessor output): not game data, but
-  never wanted in the repository either.
+  never wanted in the repository either;
+- generator tables (.tbl, the input scripts/klib.py turns into the kernel's
+  syscall stubs at build time): every line must be a comment, blank, or a
+  `number name [jp|kr]` row. A table holds names and numbers, never code.
 
 Writes a Markdown report. Exit status 1 if any finding is in scope.
 
@@ -41,7 +44,7 @@ PUBLISH = ['build.py', 'FAKEMATCHES.md', 'src/', 'include/', 'nonmatching/',
            'kr/slpm_645.25.yaml', 'kr/symbol_addrs.txt', 'jp/slps_201.37.yaml', 'jp/symbol_addrs.txt',
            'scripts/align.py', 'scripts/csplit.py', 'scripts/datafrag.py', 'scripts/sdkprofile.py',
            'scripts/verify.py', 'scripts/xref.py', 'scripts/patch_kr_as.py', 'scripts/fetch_toolchain.py',
-           'scripts/make_kr_symbols.py', 'scripts/audit_repo.py']
+           'scripts/make_kr_symbols.py', 'scripts/audit_repo.py', 'scripts/klib.py']
 PUBLISH_EXCLUDE = ['include/generated/README.md']
 
 ASSET_EXT = {
@@ -72,6 +75,8 @@ BLOB = re.compile(r'[A-Za-z0-9+/=]{2000,}|(?:\\x[0-9a-fA-F]{2}){1000,}')
 INIT = re.compile(r'=\s*\{')
 NUM = re.compile(r'\b(?:0x[0-9a-fA-F]+|\d+)\b')
 MAX_LITERALS = 1024
+# a generator table row (scripts/klib.py): syscall number, name, optional disc
+TABLE_ROW = re.compile(r'^\s*(?:#.*|-?\d+\s+[A-Za-z_]\w*(?:\s+(?:jp|kr))?\s*)?$')
 
 
 def list_files(root):
@@ -123,6 +128,11 @@ def audit_file(path, rel):
         n = largest_initializer(text)
         if n > MAX_LITERALS:
             found.append(('disc data', f'initializer with {n} literals'))
+    if ext == '.tbl':
+        bad = [i for i, line in enumerate(text.splitlines(), 1) if not TABLE_ROW.match(line)]
+        if bad:
+            found.append(('assembly', f'generator table with {len(bad)} lines that are not "number name" rows '
+                                      f'(first: line {bad[0]})'))
     return found
 
 

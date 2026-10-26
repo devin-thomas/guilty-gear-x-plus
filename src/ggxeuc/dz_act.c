@@ -523,6 +523,12 @@ void DZAct_SHW2_TENCHI_3(CHARACTER_WORK *offset) {
 extern USER_SETTING userinfo;
 int IsFireWheel(CHARACTER_WORK *offset);
 int IsGRAY(void);
+#ifdef GGX_PORT
+/* DZ_SpecialAttackCheck calls IsGRAY(CHARACTER_WORK *) with no arguments; offset is still in a0.
+   This TU declares it (void), so the call goes through a twin in platforms/common/core/abi_glue.c. */
+int ggx_port_IsGRAY(CHARACTER_WORK *offset);
+#define IsGRAY() ggx_port_IsGRAY(offset)
+#endif
 int IsGyakuSyoryu(CHARACTER_WORK *offset);
 int IsHadou(CHARACTER_WORK *offset);
 int IsHard1(CHARACTER_WORK *offset);

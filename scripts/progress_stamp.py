@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 INPUTS = ['build.py', 'src', 'include', 'kr', 'jp',
           'scripts/verify.py', 'scripts/datafrag.py', 'scripts/xref.py', 'scripts/csplit.py',
-          'scripts/sdkprofile.py', 'scripts/objdiff_units.py']
+          'scripts/sdkprofile.py', 'scripts/objdiff_units.py', 'scripts/klib.py']
 REPORTS = {'SLPM_645.25': 'progress/SLPM_645.25/report.json',
            'SLPS_201.37': 'progress/SLPS_201.37/report.json'}
 

@@ -275,7 +275,7 @@ int FileReadCheck(void) {
 
 char *strcat(char *dst, const char *src);
 int sceSifLoadModule(const char *name, int arglen, const char *args);
-extern long long D_5B8400[]; /* RODATA_EXTERN 0x5b8400: "cdrom0:\\" (orig: strcpy(buf, "cdrom0:\\") inlined as an aligned 9-byte copy) */
+extern long D_5B8400[]; /* RODATA_EXTERN 0x5b8400: "cdrom0:\\" (orig: strcpy(buf, "cdrom0:\\") inlined as an aligned 9-byte copy) */
 extern char D_5CAF90[]; /* RODATA_EXTERN 0x5caf90: ";1" (.sdata) */
 extern char D_5B8410[]; /* RODATA_EXTERN 0x5b8410: "Module Load %s\n" */
 extern char D_5B8420[]; /* RODATA_EXTERN 0x5b8420: "Module Load Error\n" */
