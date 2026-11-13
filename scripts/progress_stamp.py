@@ -12,6 +12,8 @@ source changed and the reports weren't regenerated.
 
 The stamp also records each report's SHA-256, so a report edited by hand fails too.
 Line endings are normalised (CRLF -> LF) so a Windows checkout gives the same hash.
+The write command also generates Shields.io endpoint JSON badges per version;
+check verifies that those badges agree with the committed objdiff reports.
 """
 import hashlib
 import json
@@ -62,14 +64,33 @@ def stamp():
     return {'inputs_sha256': h.hexdigest(), 'input_files': n, 'reports': reports}
 
 
+
+def badge_payload(version):
+    """Make a Shields.io endpoint badge from matched code bytes in an objdiff report."""
+    m = json.loads((ROOT / REPORTS[version]).read_text())['measures']
+    matched, total = int(m['matched_code']), int(m['total_code'])
+    if total <= 0 or matched < 0 or matched > total:
+        raise SystemExit(f'{version}: invalid matched code totals')
+    percent = 100 * matched / total
+    label = 'JP code match' if version == 'SLPS_201.37' else 'KR code match'
+    color = ('brightgreen' if percent >= 95 else 'green' if percent >= 80
+             else 'yellow' if percent >= 60 else 'red')
+    return {'schemaVersion': 1, 'label': label,
+            'message': f'{percent:.2f}%', 'color': color}
+
+
 def main():
     if len(sys.argv) != 3 or sys.argv[1] not in ('write', 'check'):
         raise SystemExit(__doc__)
     path = Path(sys.argv[2])
     now = stamp()
+    badges = {version: badge_payload(version) for version in REPORTS}
     if sys.argv[1] == 'write':
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(now, indent=2) + '\n')
+        for version, badge in badges.items():
+            badge_path = ROOT / 'progress' / version / 'badge.json'
+            badge_path.write_text(json.dumps(badge, indent=2) + '\n')
         print(f'wrote {path}: {now["input_files"]} input files, inputs {now["inputs_sha256"][:16]}')
         return
     old = json.loads(path.read_text())
@@ -80,7 +101,12 @@ def main():
     for version, r in now['reports'].items():
         if old['reports'].get(version, {}).get('sha256') != r['sha256']:
             raise SystemExit(f'{version}: report.json differs from the one the stamp recorded')
-    print(f'reports are current ({now["input_files"]} input files)')
+    for version, badge in badges.items():
+        badge_path = ROOT / 'progress' / version / 'badge.json'
+        if not badge_path.is_file() or json.loads(badge_path.read_text()) != badge:
+            raise SystemExit(f'{version}: stale code-match badge; run '
+                             '`python scripts/progress_stamp.py write progress/stamp.json`')
+    print(f'reports and badges are current ({now["input_files"]} input files)')
 
 
 if __name__ == '__main__':

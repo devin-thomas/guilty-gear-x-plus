@@ -1,5 +1,10 @@
 # Guilty Gear X Plus
 
+[![Progress report](https://github.com/devin-thomas/guilty-gear-x-plus/actions/workflows/progress.yml/badge.svg?branch=main&event=push)](https://github.com/devin-thomas/guilty-gear-x-plus/actions/workflows/progress.yml)
+[![License: CC0 1.0](https://img.shields.io/badge/license-CC0--1.0-blue)](LICENSE)
+[![JP code match](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdevin-thomas%2Fguilty-gear-x-plus%2Fmain%2Fprogress%2FSLPS_201.37%2Fbadge.json)](progress/SLPS_201.37/report.json)
+[![KR code match](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdevin-thomas%2Fguilty-gear-x-plus%2Fmain%2Fprogress%2FSLPM_645.25%2Fbadge.json)](progress/SLPM_645.25/report.json)
+
 A matching decompilation of *Guilty Gear X Plus* for the PlayStation 2. The C in `src/` compiles back to the original game, byte for byte.
 
 ## Status
@@ -12,6 +17,8 @@ A matching decompilation of *Guilty Gear X Plus* for the PlayStation 2. The C in
 | SLPM-64525 (Korea) | `SLPM_645.25` | `ef3278dcf50feee1da1ac423042db6a3eeeaf845a3644a1d625bb97d0024755f` |
 
 One function, `TensionDraw`, is a tagged fake match; see [FAKEMATCHES.md](FAKEMATCHES.md). The Sony SDK and C-runtime layer in `src/sdk/` is partly C and partly assembly.
+
+The JP/KR **code-match badges** measure byte-exact code matching in the committed objdiff reports, including SDK/runtime code; this differs from game-function C coverage. They update when you regenerate the reports and run `python scripts/progress_stamp.py write progress/stamp.json`. The existing [progress-report workflow](.github/workflows/progress.yml) checks report freshness and badge values; it does **not** rebuild the game, because disc executables are not distributed here.
 
 ## Building
 
