@@ -1,0 +1,165 @@
+ggx-lang 1
+# Assignment "misc" (PORT-014): gallery captions, move lists, the JP teaser card.
+
+[gallery-captions]
+releases KR JP
+layout block
+
+54/001 Testament|New illustration for the strategy guide
+55/001 Axl Low|New illustration for the strategy guide
+56/001 Dizzy|New illustration for the strategy guide
+57/001 Johnny|Illustration for a trading card
+58/001 Robo-Ky|Design illustration
+59/001 Anji Mito|New illustration for the strategy guide
+# The original writes the name with "ONE" in Latin letters; STYLE.md's spelling used.
+60/001 Zato-1|New illustration for the strategy guide
+61/001 Arc System Works|Illustration for the 2001 New Year's card
+62/001 Venom|New illustration for the strategy guide
+63/001 Millia Rage|New illustration for the strategy guide
+64/001 Ky Kiske|New illustration for the strategy guide
+65/001 May & Jam|Illustration for a bonus phone card
+66/001 Chipp Zanuff|New illustration for the strategy guide
+67/001 Baiken|Illustration for a bonus phone card
+68/001 Potemkin|New illustration for the strategy guide
+69/001 GUILTY GEAR X|Main visual
+70/001 Sol Badguy|New illustration for the strategy guide
+71/001 Jam Kuradoberi|New illustration for the strategy guide
+72/001 Faust|New illustration for the strategy guide
+73/001 Anji and Baiken|Illustration for merchandise
+74/001 May|New illustration for the strategy guide
+75/001 Sol and Ky|Illustration for a bonus phone card
+76/001 Millia Rage|Illustration for a magazine giveaway phone card
+77/001 Sol and Ky|Illustration for a game magazine cover
+78/001 GUILTYGEAR PETIT|Illustration for the manual and design work
+# The Korean drops "Petit 2" here and in 81 (title reads just "Guilty Gear"); the Japanese has it.
+79/001 Guilty Gear Petit 2|Illustration for the package
+80/001 GUILTYGEAR PETIT|Illustration for the package
+81/001 Guilty Gear Petit 2|Illustration for the manual and design work 1
+82/001 Guilty Gear Petit 2|Illustration for the manual and design work 2
+83/001 Guilty Gear Petit 2|Illustration for the manual and design work 3
+84/001 Guilty Gear Petit 2|Illustration for the manual and design work 4
+85/001 GUILTYGEAR PETIT|Illustration for a promotional poster
+# 86-93: fan-art contest prizes; P.N. = pen name. The pen names in kanji are romanised by guess (readings of
+# pen names are not certain); the Korean disc leaves them in kanji.
+86/001 General Director Award|P.N. RIKI
+?87/001 Arc System Works Award|P.N. Shichifukujin
+?88/001 Arcadia Award|P.N. Shinobu
+?89/001 GameWave DVD Award|P.N. Momohime Yuri
+?90/001 Weekly The PlayStation 2 Award|P.N. Shihei Tatsuya
+91/001 Dengeki PlayStation Award|P.N. G3
+?92/001 HYPER PlayStation2 Award|P.N. Hokuto Kaori
+?93/001 Famitsu PS2 Award|P.N. Oboro Sakura
+94/001 Story Mode|Sol|Ending 1
+95/001 Story Mode|Sol|Ending 2
+96/001 Story Mode|Sol|Ending 3
+97/001 Story Mode|Sol|Event
+98/001 Story Mode|Ky|Ending 1
+99/001 Story Mode|Ky|Ending 2
+100/001 Story Mode|Ky|Ending 3
+101/001 Story Mode|Ky|Event
+102/001 Story Mode|May|Event
+103/001 Story Mode|May|Ending 2
+104/001 Story Mode|May|Ending 1
+105/001 Story Mode|Millia|Ending 1
+106/001 Story Mode|Millia|Ending 2-2
+107/001 Story Mode|Millia|Ending 2-1
+108/001 Story Mode|Axl|Ending 2
+109/001 Story Mode|Axl|Ending 1
+110/001 Story Mode|Potemkin|Ending 1
+111/001 Story Mode|Potemkin|Ending 2
+112/001 Story Mode|Chipp|Ending 2
+113/001 Story Mode|Chipp|Ending 1
+114/001 Story Mode|Zato|Event
+115/001 Story Mode|Zato|Ending 1
+116/001 Story Mode|Zato|Ending 2
+117/001 Story Mode|Baiken|Ending 1
+118/001 Story Mode|Baiken|Ending 2
+119/001 Story Mode|Faust|Ending 1
+120/001 Story Mode|Faust|Ending 2
+121/001 Story Mode|Testament|Ending 1
+122/001 Story Mode|Testament|Ending 2
+123/001 Story Mode|Testament|Event
+124/001 Story Mode|Jam|Ending 1
+125/001 Story Mode|Jam|Ending 2
+126/001 Story Mode|Anji|Ending 1
+127/001 Story Mode|Anji|Ending 2
+128/001 Story Mode|Johnny|Ending 1
+129/001 Story Mode|Johnny|Ending 2
+130/001 Story Mode|Venom|Ending 1
+131/001 Story Mode|Venom|Ending 2
+132/001 Story Mode|Dizzy|Ending 1
+133/001 Story Mode|Dizzy|Ending 2
+134/001 Story Mode|Dizzy|Ending 3
+135/001 Story Mode|Dizzy|Event
+136/001 Arcade Mode|Sol|Ending
+137/001 Arcade Mode|Ky|Ending
+138/001 Arcade Mode|May|Ending
+139/001 Arcade Mode|Millia|Ending
+140/001 Arcade Mode|Axl|Ending
+141/001 Arcade Mode|Potemkin|Ending
+142/001 Arcade Mode|Chipp|Ending
+143/001 Arcade Mode|Zato|Ending
+144/001 Arcade Mode|Baiken|Ending
+145/001 Arcade Mode|Faust|Ending
+146/001 Arcade Mode|Testament|Ending
+147/001 Arcade Mode|Jam|Ending
+148/001 Arcade Mode|Anji|Ending
+149/001 Arcade Mode|Johnny|Ending
+150/001 Arcade Mode|Venom|Ending
+151/001 Arcade Mode|Dizzy|Ending
+
+[move-lists]
+releases KR JP
+layout rows 32
+
+# Sol. Row 8 is descriptive ("throws carelessly"), translated; the Korean disc uses the later official "Wild Throw".
+187/000 Gun Flame|Volcanic Viper|Air Volcanic Viper|Grand Viper|Bandit Revolver|Air Bandit Revolver|Riot Stamp|Careless Throw|Tyrant Rave|Dragon Install|Napalm Death
+# Ky. Rows 7, 10, 11, 12 (Crescent Slash, Impala Hunt, Reverse Crescent, Ray Divider) are spelled as the katakana
+# reads; the Korean agrees. The last row's katakana reads "Aces High"; the Korean has "Aigis High".
+188/000 Stun Edge|Air Stun Edge|Stun Edge Charge Attack|Vapor Thrust|Air Vapor Thrust|Stun Dipper|Crescent Slash|Ride the Lightning|Rising Force|Impala Hunt|Reverse Crescent|Ray Divider|Aces High
+# May. Row 8 ("ultimate tantrum") is "Spin! Spin!" on the Korean disc; the Japanese is followed.
+189/000 Mr. Dolphin (Horizontal)|Mr. Dolphin (Vertical)|Restive Rolling|Air Restive Rolling|A Round of Applause, Please|Overhead Kiss|Special Input Move|Ultimate Tantrum|Great Yamada Attack|May and the Jolly Crew
+190/000 Lust Shaker|Tandem Top|Bad Moon|High-Speed Fall|Forward Roll|Iron Savior|Secret Garden|Winger|Emerald Rain|Iron Maiden
+# Axl. Kanji names romanised from the readings the picture gives (the readings in parentheses are dropped).
+# Row 2: Rensengeki, then its follow-ups Kyokusageki / Sensageki, shortened to fit.
+191/000 Benten Gari -> Axl Bomber|Rensen -> Kyokusa/Sensa Geki|Rashousen|Tenhouseki|Raiei Sageki|Axl Bomber|Byakue Renshou|Rensen Ougi: Midaregami
+192/000 Megafist (Forward)|Megafist (Back)|Slide Head|Hammer Fall|Potemkin Buster|Heat Knuckle -> Heat Extend|Giganter -> Gigantic Bullet|Heavenly Potemkin Buster|Magnum Opera
+# Chipp. Row 10's kanji move has no reading in the picture; "Sakugan Kyaku" is a guess (the Korean just says
+# "special input move"). Last row: the katakana is an odd spelling ("Dielta End"); the Korean has "Delta End".
+?193/000 Alpha Blade|Air Alpha Blade|Beta Blade|Air Beta Blade|Gamma Blade|Tsuyoshi-shiki Ten'i|Tsuyoshi-shiki Meisai|Genrou Zan|Resshou/Rokusai/Senshuu|Special Input: Sakugan Kyaku|Zansei Rouga|Banki Messai|Delta End
+# Zato. Row 4 lists Eddie's four attacks (small attack / moving attack / anti-air attack / Drill Special), shortened.
+194/000 Invite Hell|Break the Law|Summon Eddie|Small/Moving/Anti-Air/Drill|Drunkard Shade|Damned Fang|Float|Executer|Amorphous|Black in Mind
+# Baiken. Row 3: Zakuro / Mawarikomi (rolling behind) / Sakura. Row 7: "Baku" with four auspicious beasts
+# (tortoise, qilin, dragon, phoenix); the readings Ki/Rin/Ryuu/Hou are a guess.
+?195/000 Tatami Gaeshi|Air Tatami Gaeshi|Zakuro/Mawarikomi/Sakura|Suzuran|Youzansen|Tsurane Sanzu-watashi|Baku: Ki/Rin/Ryuu/Hou|Garyou Tensei
+# Faust. Row 1 shortened (the thrust is the "rerere" thrust, a gag name). Rows 5 and 8 are set in small type in
+# the original too: "boing neck / growing flower / going my way", "here I come from the front / behind / above".
+# Row 12: the original keeps "YAMABA" (climax) in Latin letters; the Korean has "Today's highlight!".
+196/000 Thrust -> Pull Back -> Hey!|What Could This Be?|Souten Enshin Ranbu|Move Forward / Move Back|Boing/Growing Flower/Going My Way|Air Going My Way|Hack to Pieces|From Front/Behind/Above!|Special Move|Stimulating Fist of Death|W-W-W-What Could This Be!|This Week's YAMABA
+197/000 Phantom Soul|Grave Digger|Exe Beast|Warrant|Nightmare Circular|Seventh Sign
+# Jam. Kanji names romanised from the picture's readings. Row 8: Bakushuu and its follow-ups
+# (roll behind / foot sweep / Hyappo Shinshou / Senri Shinshou), shortened.
+198/000 Asanagi no Kokyuu|Ryuujin|Air Ryuujin|Gekirin|Air Gekirin|Kenroukaku|Air Kenroukaku|Bakushuu Roll/Trip/Hyappo/Senri|Hochifu|Houeikyaku|Renhoukyaku|Choukyaku Hououshou|Gasenkotsu
+# Anji. Row 2: Fuujin and its follow-ups Shin Ichishiki / Shin Nishiki / Nagiha.
+199/000 Shitsu|Fuujin: Shin Ichi/Ni/Nagiha|On|Kai|Shin: Nishiki|Issei Ougi: Sai|Zetsu
+# Johnny. Row 6 is "Johnny Special" on the Korean disc; the Japanese is followed.
+200/000 Mist Finer|Glitter Is Gold|Bacchus Sigh|Air Divine Blade|Divine Blade|"That's My Name"|Joker Trick
+# Venom. Last row: spelling of the katakana name is a guess (the Korean reads roughly "Dum Bomber").
+?201/000 Stinger Aim|Carcass Raid|Create Ball|Double Head Morbid|Mad Struggle|Teleport|Dark Angel|Red Hail|Dim Bogger
+# Dizzy. Rows 1-4 are her sentences about her wings, used as move names.
+202/000 It Was Just a Light at First|I Used It to Catch Fish|I Used It to Pick Fruit|They Often Keep Me Company|Imperial Ray|If Necro Gets Angry|Gamma Ray
+# Kliff. Kanji names romanised from the picture's readings; row 6 (no reading given) translated.
+203/000 Houkou Gaeshi|Zugaisai|Kubimatagi|Urokohagashi|Sen no Sen|Hell Charge|Houkou Gaeshi Charge Attack|Soul Survivor|Haryuu Bakusai
+# Justice. Last row: spelling of the katakana name is a guess.
+?204/000 Valkyrie Arc|Michael Sword|Strike Back Tail|Imperial Ray|Gamma Ray|Exelaser
+
+[teaser-jp]
+releases JP
+file 161
+layout block
+# Only the two Japanese lines are replaced (area); the "Guilty Gear X" logo
+# and the copyright line are the picture's own. "Coming soon" is the arcade
+# term (the game goes into operation soon).
+area 150 215 490 345
+size 24
+003 Coming soon to arcades|Stay tuned!

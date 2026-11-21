@@ -1,0 +1,180 @@
+ggx-lang 1
+
+# Anji Mito's story (file 49). Opponents in order: Ky, Axl, Baiken, Testament, Dizzy, Sol, then a final scene with Sol.
+[story-49]
+releases KR JP
+file 49
+layout block
+
+000 There was once an arc of islands in the Pacific. Its people were called the Japanese.
+001 At the very start of the Crusades, rampaging Gears wiped out the Japanese, islands and all.
+002 The few who barely survived were shut away in camps, in the name of protection.
+003 As if they were something to be feared.
+004 Anji Mito. Japanese. A man seeking the cause of Japan's destruction. His step is ever light.
+005 Hey there! You'd be Ky? The former commander of the Holy Knights?
+006 I am. What of it?
+007 I'm on a warrior's pilgrimage.
+008 How about a bout with me?
+009 Oh, a martial art I've never seen before. I would be glad to see it.
+010 And also... mind telling me about a man named Sol?
+011 I have nothing to say about him.
+012 That guy... is he really human?
+013 ...!
+014 Thanks a bunch.
+015 ...What do you mean by that? Here I come!
+016 You're... Axl, right? The one they say jumps through time.
+017 Yeah, but who are you?
+018 Pardon my manners. Mito is the family name. Anji is mine.
+019 There's something I'd like to ask you...
+020 If you're asking about the future, forget it.
+021 Things'd get messy.
+022 Just one thing. Wherever you jumped, did you ever see a guy called Sol?
+023 You... better keep the jokes to your dancing, mate.
+024 I'm always dead serious. Here goes!
+025 Hey, you're Japanese, aren't you?
+026 Huh? You looking for a fight?
+027 So am I. For old times' sake, as fellow countrymen, give me a bout!
+028 Hmph. You'll get hurt, you know.
+029 I know that already! And another thing... tell me about "That Man" too.
+030 So a mere dancer has wandered in, not knowing his place.
+031 So there really is one! A Gear in human form.
+032 It seems you want your tongue torn out.
+033 Say, is that the unstoppable urge to attack I've heard about?
+034 Hardly. You are simply filthy.
+035 So this is... a "Gear with a will of its own."
+036 Have you... come to kill me?
+037 My bad, my bad. I'll be out of here soon. But first, how about a bout?
+038 With me...? What a strange person.
+039 Sorry about this, miss.
+040 What do you want?
+041 I've got something to talk to you about. Tell me, are Gears
+042 really evil?
+043 ...Are you an idiot?
+044 ...Yeah, I know about the war too. Gears are vile weapons of slaughter.
+045 ......
+046 But... what if a Gear didn't kill people?
+047 Ridiculous. Gears are weapons.
+048 Huge livestock that shrug off disease would be handy, I'd bet. And humans, too...
+049 Not another word. Say it... and I'll cut you down.
+050 Artificial evo...
+# Battle cry right after Sol's threat: unclear whether Sol is striking or Anji is moving; kept neutral.
+?051 Hyah!
+052 ...Phew. Thought he was really going to kill me.
+053 Suppose Gears... weren't weapons. Then whoever made the Gears...
+054 Nah, let's leave it. That's something I won't understand till I meet him.
+055 Well then... where might that man be now, I wonder...
+056 You saw, didn't you?
+057 You fought Justice.
+058 Which means... Dizzy isn't the only independent Gear...
+059 That mouth of yours sure runs on.
+060 I'm a man, and my name is Anji. I won't run, and I won't hide.
+061 If my knowing the secret is a problem, go ahead and cut me down clean.
+062 Then you'll get what you wish! Here!
+063 ......
+# Anji wakes up spared; the Korean disc reads "Huh? ...I'm alive?" which supports this reading.
+064 Huh, I'm still alive.
+# "Three hundred years" is literal in both discs; Anji is guessing at Sol's age.
+?065 ...Well, well. For a guy who's lived three hundred years, he sure doesn't finish the job.
+066 ...You really want to die?
+# The Korean disc diverges here ("Ouch! That hurts!"); this follows the Japanese.
+067 Whoa! You were still here?!
+068 ...Next time, I kill you.
+# The Korean disc diverges here ("Really... shall I go another round..."); this follows the Japanese.
+069 Geez... he sure got one over on me.
+070 But I'm not giving up, not me.
+071 Someday I'll uncover "That Man's" secret!
+
+# No text: 072 073 074 075 (illustrations of Anji)
+
+# Johnny's story (file 50). Opponents in order: Jam, Sol, Millia, Ky, May, Testament, Dizzy, Potemkin, then the ending on the Mayship.
+[story-50]
+releases KR JP
+file 50
+layout block
+
+000 The man once had his heart eaten away by loneliness.
+001 He knows how cold a world without love can be.
+002 And so the man came to understand.
+003 Love is not something you are given.
+004 It is something you give first.
+005 This world needs love.
+006 A hand held out to lonely souls.
+007 That was how the man lived.
+008 "A Gear who will not harm people." In her, the man saw a lonely soul.
+009 Wow. Beautiful... and fierce. A lady like the sun.
+010 What is it?
+011 I long to hold your overflowing radiance in these arms.
+012 Grab carelessly and you'll get burned!
+013 Not to worry. Playing with fire is my specialty.
+014 Knew you'd be here.
+015 ......
+016 Sorry, but would you leave this one to me?
+017 Give it a rest.
+018 I know. How about a contest of swordsmanship? Whoever loses backs off.
+019 Spare me the chatter. Just get on with it.
+020 Cool and beautiful! A lady with a face like the radiant moon.
+021 Might I offer you a cup of tea?
+022 The moon... huh.
+023 It's true I can only live in the dark.
+024 No, no, no, no. The moon shines because it takes in the sun. Why not come with us?
+025 The Jellyfish Pirates.
+026 I've heard the rumors. But I don't like running with a crowd.
+027 Stand aside.
+028 The International Police Force, out in person. How tactless.
+029 At present, I am merely a bounty hunter.
+030 ...I see. Then I won't hold back.
+031 Nor would I wish you to.
+032 Pal, you're not polished enough as a man to go and bring her home.
+033 Leave this to the perfect Johnny, and have yourself a nice long nap.
+034 Yoo-hoo, Johnny!
+035 May! What are you doing in a place like this?!
+036 April told me! She said Johnny's next target is a woman!
+037 So I'll go and bring her home!
+038 ...It's dangerous here. Go back to the ship.
+039 I'm not going back! Johnny, you're hiding something!
+040 Now I'm in a fix...
+041 He puts on a frivolous air, but... he is quite the master.
+042 Yet in the end he is only human. No match for my summoning arts.
+043 Let me tell you just one thing.
+044 I won't stand for anything that keeps the ladies away from me.
+045 Sorry to keep you waiting. I'm...
+046 Stay away!
+# Johnny of Dizzy, just after she lashes out; could mean her body or her heart. The Korean disc reads it as her being badly hurt.
+?047 She's hurting bad, this one...
+048 Sorry about that. I got a little rough.
+049 Who... are you?
+050 I've come to take you home.
+051 You'd better stop.
+052 This power... only makes people unhappy.
+053 It's not your power I'm after.
+054 Huh?
+055 It's your smile.
+056 There's no rush.
+057 Just show me a real knockout of one.
+058 Ow, that smarts... Now then, come on out.
+059 So you noticed.
+060 Yeah.
+061 Sorry, but I'll have Zepp back off.
+062 This is not a personal matter. It is a matter between nations.
+063 That's exactly why, see.
+064 Instead of Zepp keeping her, isn't it cleaner if the spark just goes out?
+065 You would have me... trust a sky pirate?
+066 Yeah.
+067 Forgive me, but I cannot accept that.
+068 That's fine.
+069 'Cause you're the one who's going to get hurt.
+070 Hmm.
+071 Then there is no other way.
+072 That was quite the detour.
+073 Wonder if May pulled it off?
+074 Hey there, I'm home.
+075 Happy birthday, Johnny!
+076 What's all this?
+077 It's a birthday party!
+078 Congratulations.
+079 I see, today's...
+080 How could I have forgotten...
+081 And it's a welcome party for Dizzy, too!
+082 Come on, let's get started!
+
+# No text to translate: 083 084 085 086 (illustrations; 084 and 086 show a cake already lettered "Happy Birthday JOHNNY!" in English)

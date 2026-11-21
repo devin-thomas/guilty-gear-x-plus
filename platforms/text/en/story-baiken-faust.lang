@@ -1,0 +1,210 @@
+ggx-lang 1
+
+# Baiken's story (opponents: Zato/Eddie, a "monster" (probably Potemkin), Faust, Sol, Testament, Dizzy, Johnny)
+[story-45]
+releases KR JP
+file 45
+layout block
+
+000 A woman alone on a path of carnage.
+001 Her blade of ice leaves its sheath|to cut down demons and fiends;|a flame of grudge burns in her breast.
+002 Revenge for her slain parents.|Where is the foe she seeks?|West, then east, wherever the wind blows.
+003 Today, too, a wind of blood howls.
+004 Hm? A bounty hunter?|I have no business with you.
+005 Possessed, are you?
+006 Lent it the eaves and lost the whole house, huh? Pathetic.
+007 Please... tell her...|Tell Millia...
+008 That's what's pathetic! I'll give you your last rites!
+009 You there, monster. Hold it.
+010 You mean me?
+011 Who else is there but you?
+012 Forgive me if I startled you,|but I was born with this body...
+013 No more talk!
+014 ......
+015 Is something the matter?
+016 Hey. Just what kind of demon are you?
+017 I am called Faust, but...
+018 A demon called Faust. I'll strike you down!
+019 Demon, you say? This is merely a little functional beauty...
+020 Enough chatter. Draw!
+021 You there, pretty boy. Hold on a second.
+022 What a pain.
+023 You can hide your shape, but you can't hide the power spilling out of you.
+024 You picking a fight?
+025 I cut down monsters. That's all.
+026 Another demon shows its face?
+027 Filthy bounty hunter. You will not go near her!
+028 Big talk.
+029 Say what you like.
+030 I will kill you, and I will protect her.
+031 How touching.
+032 ...I'll finish you in one minute.
+033 That man... what became of him?
+034 I took care of him.
+035 Because he's a Gear... is that it?
+036 That's right! Kin of the Gears, who bring harm to people.
+037 I won't let a single one of you get away!
+038 But I don't even want to fight...
+039 Then die!
+040 ...This ends it!
+041 ......
+042 ...What's the idea?
+043 Huh?
+044 Holding back like that. You want to die?
+045 I... I just don't know what to do anymore...
+046 Listen. If you want to die, die by your own hand. Don't use me to do it!
+047 ...I'm sorry.
+048 Apologizing while you get cut down. You're hopeless.
+# 'him' is a vague 'that guy' in the original; most likely That Man, whom Baiken hunts
+?049 He's not here either. Wasted trip.
+050 ...You're not going to kill me?
+051 I've lost my taste for it.
+052 Besides... well.
+053 That Testament fellow. I cut him deep, but he's not dead yet.
+054 Huh? Oh, yes!
+055 Give me a break. Honestly.
+056 Bravo! Quite the lady!
+057 What's the idea? If you've got no business here, get lost.
+058 Wine tastes best when shared with a beauty.
+059 Won't you join me for a drink?
+060 What, you hitting on me? That depends on how good you are.
+061 That thing at your hip isn't just for show, is it?
+062 If the lady wishes it, I'll be happy to show her.
+063 I give up!
+064 Hm? Done already?
+065 Yeah. I lose.
+066 A handsome man has no money and no muscle, is that it?
+067 ...Slippery bastard.
+068 Be that as it may, will you keep me company?
+069 A promise is a promise. For today, anyway.
+070 If the sake isn't good, you'll regret it.
+
+# no text: 071 072 073 074 (illustrations)
+
+# Faust's story (opponents: Ky, Baiken, Millia, Venom, Sol, Testament, Dizzy, Zato/Eddie)
+[story-46]
+releases KR JP
+file 46
+layout block
+
+000 A doctor who committed the sin of pride.|That was the cross the man bore.
+001 He was hailed as a genius, a great physician who could outwit Death himself.
+002 That one mistake, made only once...|drove the man to madness.
+003 However many illnesses he cures,|the life he took will never return.
+004 To atone for a sin beyond atonement,|the man runs on again today...
+005 A suspicious fellow. Who are you!
+006 Someone who was once a doctor.
+007 You had better go home.
+008 This place will soon be a battlefield.
+009 Don't you think the battlefield is the very stage for a doctor?
+010 Forgive me, but I cannot trust you.
+011 Please withdraw.
+012 You mean well. ...But earnest goodwill can sometimes be quick to break.
+013 Keep both body and mind supple. Yes, just like this.
+014 Wh-what a rogue!
+015 You there, madam, passing by.
+016 Madam, is it? You mean me?
+017 Why do you have such sad eyes?
+018 Are your eyes just the holes in that bag?
+019 What about this looks like sad eyes?
+020 The sorrow you've crushed down deep inside is showing through.
+021 Preaching at me like you know it all?
+022 Makes me want to puke.
+023 The flames of revenge burn you,|and yet you have not forgotten sorrow.
+024 That is a wonderful thing.
+025 Shut up!
+026 Who are you?
+027 A doctor, just passing through.
+028 I see, a doctor...
+029 Is something troubling you? If I can be of help, I'll listen.
+030 I feel like I'm about to do something I can never take back.
+031 Kill That Man with my own hands.
+032 Or I can't go on living.
+033 You know it yourself, surely. That is a path of carnage.
+034 I don't need to be saved.
+035 But... perhaps I do.
+036 You want someone to stop you, is that it?
+037 ...I'm sorry.
+038 Forget it.
+039 I'm afraid that, having heard this, I can't let it pass.
+040 You'll die, you know.
+041 A physician, you see, has times when he cannot back down.
+042 The back-alley doctor Faust, I take it.
+043 I hardly deserve to call myself a physician, but...
+044 I will test your skill.
+045 I am no fighter. What do you hope to learn by fighting?
+# speaker is Venom (inferred); the original says only 'that honoured person', i.e. Zato
+?046 I need the power to save my master... and keep him alive.
+047 I see a sincere wish. I'll keep you company.
+048 Stand aside.
+049 I'm afraid I can't leave this to you.
+050 ......
+051 I will save her soul.
+052 ...It's nothing a doctor can cure.
+053 And you can save her? Do you mean to grant her the mercy of death?
+054 ...Gears, I cut down.
+055 Who are those words meant for?
+056 The Gear deep in the forest? Or...
+057 Halt.
+058 For those who defile the sanctuary, there is only death.
+059 Codependence, I see.
+060 I'm afraid some drastic treatment is in order.
+061 A mere doctor! What would you know!
+062 You protect her.
+063 And at the same time, you are protected.
+064 Of course! This is the life I have found!
+065 A noble way to live.
+066 And yet...
+067 A patient who has healed has no need of a sickroom.
+068 Please don't come any closer!
+069 Young lady.
+070 There's nothing to worry about.
+071 I don't want to kill you!
+072 Please, just calm down a little.
+073 Burn to cinders!
+074 ...Or is that too much to ask?
+075 Huh... I...
+076 Are you awake?
+077 I'm sorry.
+078 I... I was sure you were a bounty hunter.
+079 You knew it, didn't you? That you couldn't stay in that forest.
+080 Yes.
+081 So many people kept coming...
+082 If I had stayed there like that,
+083 I would have killed someone.
+084 Even though I never wanted to do that...
+085 And yet... I just couldn't bring myself to leave.
+086 Even when we know, changing the life we're used to is hard.
+087 Let's make this your chance. All right?
+# Faust declares the 'Gear in the forest' dead so Dizzy can start over; kept literal
+?088 You died, here, just now.
+089 Thank you.
+090 Oh, it was nothing. It was all your own will.
+091 If you had truly been against it, I'd be cinders by now.
+092 Is it all right for me to think that?
+093 Of course it is. Hold your head high.
+094 And walk on toward the future.
+095 And now this meddling doctor will take his leave.
+096 Um... your name?
+097 People call me Faust.
+098 Heh heh heh. A doctor this time?
+099 ...This is a difficult case indeed.
+100 I won't let the likes of you lay a single finger on me.
+101 I'll cure him, you'll see. I stake my scalpel on it.
+102 The shadow's come apart! Master Zato!
+103 This man needs attentive nursing.
+104 May I leave him in your care?
+105 Of course.
+106 About my payment...
+107 Later, please. The operation isn't over yet.
+108 You... my shadow!?
+109 A symbiote... This too is a fine life.
+110 Come now, in you go. You need a body, don't you?
+111 The shadow... it's being drawn in!
+112 Sorry for all the commotion.
+113 Whether he wakes up is up to you.
+114 Well then, farewell!
+115 What a man.
+116 So that... is the way of medicine.
+
+# no text: 117 118 119 120 (illustrations)

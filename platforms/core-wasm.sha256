@@ -1,0 +1,5 @@
+# SHA-256 of core.wasm, the Core module every host builds with the pinned wasi-sdk (cmake/CoreToolchain.cmake).
+# Every OS must build exactly this module. A change to the Core's C, flags, symbol
+# maps or build tools changes it: put the new hash here once Linux, Windows and macOS all print the same one.
+KR 2bda994984adb728829623066d8a370139b824772a4ac62ef8ec881bba2021ea
+JP c3ed04f4e497f8c1e86e7a89275a7bdf9d270ee83dfa3684517ce7b2a17399c2

@@ -1,0 +1,196 @@
+ggx-lang 1
+
+# Win quotes, second half: the winner speaks to the loser. In each character's
+# block, entry 000 to 017 is against the roster in name order (Sol, Ky, May,
+# Millia, Axl, Potemkin, Chipp, Zato, Baiken, Faust, Testament, Jam, Anji,
+# Johnny, Venom, Dizzy, Kliff, Justice); groups 028-036 go with names 010-018.
+
+[win-quotes-b]
+releases KR JP
+file 184
+layout block
+
+# Faust (name 010)
+028-000 The wounds of the heart can only be healed by oneself. But so long as you need help, I will spare none.
+028-001 The path of man is one of suffering, yet true light shines on those who keep pressing on. There is no need to rush for results.
+028-002 A single-minded heart can sometimes give even a girl like this such strength. This is love!
+028-003 You have a very strong will, but that is the path of an asura! Surely you know what lies beyond it is not what you hope for!
+028-004 Your constitution is already beyond the bounds of medicine!
+028-005 Your fighting ability surpassed mine. But it seems my heart, driven by a greater cause, won out.
+028-006 Victory is a trick of a single instant. Whatever your tactics, if you think you've already won, an opening shows.
+028-007 The end that awaits one bewitched by excess desire... Still bearing the karma of your shackles, what more do you seek?
+028-008 There are things a heart seized by revenge can no longer see. That is all that led to this result.
+028-009 You may copy my form, but you couldn't master the way of drifting in the void. After all, I have "attained" it.
+028-010 Summoning is my specialty too, you see. I have the timing of the technique well in hand.
+028-011 When devotion is taken to its height, self-improvement is sure to follow. You are a true chef!
+028-012 That attitude of looking single-mindedly ahead will surely bear fruit someday.
+028-013 Yours is no cheap sword that, once drawn, knows no restraint. For now, please give way.
+028-014 Deceived by a wicked flatterer without even knowing it, and still so pure. What a lonely, quiet soul...
+028-015 That's all right. Power meant for hurting people is something you have no need of.
+028-016 How masterful! The fruit of daily training and unwavering resolve. Even so, one must also accept one's age.
+028-017 I'm so sorry. I'm not yet strong enough to save you.
+
+# Testament (name 011)
+029-000 Thinking of you makes my heart thirst...! Vanish!!
+029-001 Go home... This is no place for the law.
+029-002 My body can't hold back, not even for a child. Please go home...
+029-003 Like the husk of a soul... Did you think you could win with your heart elsewhere?
+029-004 Do you still not understand? That you cannot erase me physically in the first place.
+029-005 I am used to being treated as a monster. Though I didn't expect it from you.
+029-006 With legs like those, your way home should be quick too... Vanish.
+029-007 Could it be... that some of my "kin" still survive?
+029-008 To keep feeding on such grudges is our nature...
+029-009 I too am facing the question of "living." I cannot afford to lose.
+029-010 Foolish... Did you not understand what a burden it is to bear summoning in a body of flesh?
+029-011 Hmph, after the bounty? Then I'd best give a performance worth the price on my head. Heh heh heh!
+029-012 I am the wall before those who stake their lives on existing. Do not think mere curiosity will get you over me.
+029-013 The cards seem to have favored me. It was you who drew the Joker.
+029-014 An unexpected fighting style. But it shows none of a billiard player's finesse.
+029-015 You must cut away the need to fight. Leave the rest to me...
+029-016 Father... I...
+029-017 It should have come to this from the start. Now I strike you down! For my father!
+
+# Jam Kuradoberi (name 012)
+030-000 Your moves are simple, but your sheer force nearly bowled me over. That was close...
+030-001 Ugh... I'm still numb, I can't move. Isn't there some kind man who'll lend me a shoulder? (glance)
+030-002 Aiyaa, they let a little brat like this enter? Know your place.
+030-003 Shouting is the best way to focus power into your fist. Why not yell a bit more?
+030-004 Simple... The longer the weapon, the shakier the aim. I slipped right inside your guard.
+030-005 Way too much muscle. Wasted meat. Is your head all muscle too? Slow and flabby!
+030-006 Can't you see the gap between us? You're past pathetic, you're sad.
+030-007 A coward who leans on bluff and tricks. What a pitiful man.
+030-008 Nothing but counters, so boring. And you look kind of old.
+030-009 A-an alien life form!!! Better clear out while I can!
+030-010 Aiyaa! Are you okay? I-I didn't hit your face, not the face.
+030-011 Heaven gave me more than one gift. Can you copy all of them?
+030-012 I hate sweaty, hot-blooded idiots. Call it a dance or whatever, it's not beautiful.
+030-013 I've already seen through it. That fast attack of yours won't hit me no matter how many times you try. Want to test it?
+030-014 Are you stupid? That's a toy. And throwing balls is no different from throwing stones. Cheap!
+030-015 If you don't want to fight, just run away. Fighting you only makes me feel bad.
+030-016 Grandpa, you'd better go back to the countryside.
+030-017 Aiyaa! No way I can beat this thing. Run while you can!
+
+# Anji Mito (name 013)
+031-000 Hurts? If you're still conscious, that just means I had a hard time of it.
+# The pen name is two characters meaning "brilliant, glorious"; "Kakukaku" is our reading of them.
+?031-001 Family name Mito, given name Anji! Pen name "Kakukaku"!! That's about all my manners come to, so forgive me.
+031-002 Bothered that I'm half naked? Nah, this way I know a hit's gonna hurt, so I dodge like my life depends on it!
+031-003 Beauty dies young, they say. Thinking too hard does you no good, y'know?
+031-004 Nngaaah!!! That weapon of yours drives me nuts! Feels like it's totally making fun of me.
+031-005 Softness overcomes hardness... well, not quite, but anyway, I'm amazing!
+031-006 Your attacks are way too light. I won this sitting back fanning myself.
+031-007 You don't train yourself, so your talent withers!
+031-008 Bearing every hardship for revenge, good spirit! But... it spoils a fine woman, y'know? Some happiness only comes from smiling.
+031-009 I mean, c'mon, don't you have any sense of danger? About yourself?
+031-010 Listen, in a fight it's effort, guts and hot-blooded manliness that win it when it counts!
+031-011 Sorry! I saw it!! Now that it's come to this, I'll take responsibility and... huh? Not wanted...?
+031-012 Copycats are supposed to have amazing powers of observation, right? So tell me, what punishment am I thinking of?
+031-013 A fight is always deadly serious! Fooling around is how you end up like that!
+031-014 Whoa! You guys even turn stuff like that into weapons? It's a big world... oh wait, I'm the same.
+031-015 I can't count on always beating this one, that's for sure.
+031-016 Never thought I'd get a match like this out of an old man. Thanks!
+031-017 There are times a man just can't lose. So! That was no fluke, no way!
+
+# Johnny (name 014)
+032-000 Now that's a real iai. Learn something?
+032-001 Quite the handsome boy, but at that level you're only the second best in the world.
+032-002 Whaat are you doing in a place like this? Didn't I leave you in charge of the ship while I was away?
+032-003 Ahh, our Jellyfish Pirates are always taking on female crew. Keep that in mind!
+032-004 Mm, great reach! But before that stick gets to me, I can draw my blade ten times over.
+032-005 Etiquette first... Would you put on a jacket, so your waterfall of sweat doesn't fly everywhere?
+032-006 Brag about your speed all you like, but how will you praise a genius like me who outpaces it?
+032-007 The essence of iai is the mind's eye that grasps the heart and pierces it. Your tricks can't fool me.
+032-008 A glamorous lady has every right to be held in my arms for that alone. Come here!
+032-009 Tch, I thought we were close to communicating, but that was a dangerous experiment after all...
+032-010 I won't allow anyone, whoever they are, to keep women away from me.
+032-011 Tempting a man is playing with fire. That coquettish costume makes you a sinner, sweetheart.
+032-012 Eccentric, but it came off nicely... I kept step with my genius waltz technique, so be grateful, eh?
+032-013 I hear there are fakes even a top appraiser can't spot, but... copying this miraculously sexy form was reckless.
+032-014 Dressing up on the battlefield is basic manners. But if you can't keep off every speck of dust, that's no true elegance.
+032-015 Whatever your form, if you catch my eye you're a fine lady. Sorry for being so rough.
+032-016 So you use the Dragonslayer. Impressive, but... well, it's not exactly smart, is it.
+032-017 Pour your soul into a single instant. That's how you seize victory. Mind you, I'd rather not do it twice.
+
+# Venom (name 015)
+033-000 I know you have strength to spare, but if you still mean to fight, prepare yourself. I have no openings now.
+033-001 Even for one whose place is at the vanguard, dying in the line of duty can't be what you want?
+033-002 There is no shame in being green.
+033-003 He adored you... Why did you betray him...
+033-004 I was confident in my reach, but to think you'd outdo me.
+033-005 Even one thing you can trust absolutely becomes a weapon... is it? You've taught me something.
+033-006 In speed, you have the edge. Hone your special techniques and you should be able to cover your weaknesses.
+033-007 Lord Zato, I will save you, I swear it! But this runs deep...
+033-008 If the aim is to cut, no weapon beats the Japanese sword. But it seems that blade had lost its temper.
+033-009 The Guild's own doctors are the finest in the world. If you have the courage to face your illness, I'll introduce you.
+033-010 To release so much magic at once... You seem to be built fundamentally differently from us.
+033-011 The Guild has its barehanded fighters too, but I've never seen one who could raise their destructive power like that.
+033-012 Turning any means into an attack just by how you interpret it. That is my own field of study, too.
+033-013 Why did you hold back? Had you swung all the way through there, you would have won...
+033-014 Imitate me if you like, but it will eat away at your soul. Better stop...
+033-015 Like a fortress...
+033-016 Venerable elder, I would hate to take what little life you have left. Know when your time has passed.
+033-017 No matter how high the mountain, we pile up the corpses and climb over it. That is the Guild's way.
+
+# Dizzy (name 016)
+034-000 Please... just go home now...
+034-001 I'm not asking you to protect me... I just want you to leave me alone.
+034-002 When I hurt people, it hurts me too... Please, go home.
+034-003 You... it's faint, but you smell like me...
+034-004 I want to laugh like that too... That's all I want...
+034-005 A kind person... I wonder what he was feeling as he fought...
+034-006 Please run, before these two stop listening to me!!
+034-007 I can see your heart... Next time we meet... as friends... I'm sure of it!!
+034-008 Such hostility...! I feel like I'll be crushed...!!!
+034-009 I-I'm sorry! I thought you'd come to capture me too...
+034-010 Please step aside. I don't want anyone getting hurt for my sake anymore!!
+034-011 Your feelings are dazzling. You have dreams...
+034-012 Necro: "If you keep coming after her for a reason that petty, don't expect a next time."
+034-013 You held back for me, didn't you... Thank you...
+034-014 Please... stop chasing me!
+034-015 Necro: "Go on, keep copying her. You'll only find that being alive is suffering!"
+034-016 You look... like Father. Please, don't die.
+034-017 Um... are you all right? (What is this... this feeling, like I've known it before...)
+
+# Kliff Undersn (name 017)
+035-000 Well? Age isn't just for show, eh?
+035-001 You've grown strong. I was right to leave the Order to you.
+035-002 A child to be reckoned with someday. Take my advice and leave for now.
+035-003 Something seems to be troubling you. If you like, why not tell this old man about it?
+035-004 Those clothes, that way of talking. You dress young, but could you be...
+035-005 Brute force won't topple this old-timer.
+035-006 You have the technique and the skill, but you're far too eager. Not enough patience!
+035-007 You opened your heart to the darkness and it swallowed you... Such is karma.
+035-008 I won't say "for a woman"... but with that sword, you cannot cut down to the soul.
+035-009 I'd thought I just couldn't keep up with the young ones these days...
+035-010 You've grown up fine... Now... I have no regrets...
+035-011 You fool! Don't waste good food!
+035-012 Hm, for all your feeble look, you've fighting spirit enough.
+035-013 Iai, eh. An old-fashioned technique for one so young. But I was a cut above.
+035-014 You... you've killed people. It must weigh heavy on your back.
+035-015 A power you never asked for. But everyone born a person in this world carries a burden like that. Stand tall.
+035-016 I don't know what you're playing at, but the Dragonslayer is heavy, isn't it? You'll throw your back out!
+035-017 Forgive me... You and I alike are things the coming age has no need of.
+
+# Justice (name 018)
+036-000 I alone am the one and the absolute. The perfected Gear, Unit One.
+036-001 So this is the flower of humanity, the Sacred Order of Holy Knights. How feeble.
+# Spoken to May, yet the Japanese calls her one of the Japanese; the Korean drops the word ("still survivors"). Kept as in the Japanese.
+?036-002 Vexing. So there were still survivors, Japanese.
+036-003 A body strengthened by forbidden arts. Second-rate technology after all.
+036-004 Harboring a localized potential anomaly within the body. Why is a causality-interfering entity here?
+036-005 You could never beat me with strength. Is throwing away your life your patriotism?
+036-006 A specimen specialized for high-speed movement. I will note it for future reference.
+036-007 Destroyed by power beyond your means... That figure of yours is humanity itself.
+036-008 Slaughter breeds hatred, and hatred breeds slaughter. To turn that into power... what a sinful creature.
+036-009 This creature is not in my data. A valuable sample. Its genetic structure must be analyzed.
+036-010 Hm. An interesting logic error. What reason did a mere semi-autonomous Gear give itself for rebellion?
+036-011 You use qigong? But your output is still lacking.
+# "Critical point" is literal; the Korean reads "not yet extinct", so it may mean "not at the brink of extinction yet".
+?036-012 A Japanese, eh. It seems you have not yet reached the critical point.
+036-013 So this is "godspeed"? Human perception is laughable.
+036-014 Did you think you could win by not sparing your life?
+036-015 Sleep for now.
+036-016 Old soldier, fade away.
+036-017 A contraption? Humans do love pointless things.
+
+# No-text pictures in 028-000 to 036-017: none.

@@ -285,7 +285,15 @@ void PXF_Free(int id, int pal)
     pxf_work[id].vram = -1;
     pxf_work[id].src = 0;
     if (pal >= 0) {
+#ifdef GGX_PORT
+        /* ReLoadPalette (select.c) frees palettes 32 and 48 of this 32-entry table: the EE clears words past
+           its end, in PxfVRAM, which follows it on both discs. The Core keeps both at their PS2 addresses, so
+           the port makes the same writes through the address, without the out-of-bounds subscript (UBSan,
+           PORT-015). */
+        *(int *)((unsigned int)pxf_pal_work + (unsigned int)pal * 4u) = 0;
+#else
         pxf_pal_work[pal] = 0;
+#endif
     }
 }
 

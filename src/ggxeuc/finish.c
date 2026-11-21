@@ -538,14 +538,27 @@ void KakuseiBG_Draw(void)
         int x;
 
         index = KakuseiControl.table[i * 2 + 1] >> 3;
+#ifdef GGX_PORT
+        /* A line's width is up to 123, so index reaches 15 and the EE reads up to three words past the 13
+           colours: stack words this function never writes, leftovers of earlier calls. The port can't know
+           them, and reading past the array is undefined in C, so it reads zero there, as it zero-fills locals
+           (UBSan, PORT-015). Code only: a longer table would move the Core's own constants. */
+        vt[0].y = i * 2;
+        vt[0].col = gStripGetFadeColor(index < 13 ? colortable[index] : 0);
+#else
         vt[0].y = i * 2;
         vt[0].col = gStripGetFadeColor(colortable[index]);
+#endif
         vp = &vt[1];
         vp->y = i * 2;
         vp->col = 0xFF000000;
         vp = &vt[2];
         vp->y = i * 2 + 1;
+#ifdef GGX_PORT
+        vp->col = gStripGetFadeColor(index < 13 ? colortable[index] : 0);
+#else
         vp->col = gStripGetFadeColor(colortable[index]);
+#endif
         vp = &vt[3];
         vp->y = i * 2 + 1;
         vp->col = 0xFF000000;

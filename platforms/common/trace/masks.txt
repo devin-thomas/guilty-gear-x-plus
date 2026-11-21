@@ -1,0 +1,37 @@
+# EE RAM the PS2 and the port can't agree on, masked from every Lockstep Trace hash
+# tools/lockstep_map.py resolves these into
+# common/trace/<kr|jp>.map; the recorder embeds the resolved list in each trace.
+#
+#   range <kr|jp|all> <base> <size> <reason>
+#   sym <data symbol> <size | -> <reason>       (- = up to the next symbol)
+#   span <first symbol> <end symbol[+0xN]> <reason>   (from the first up to the end; elf_end is
+#        where the boot ELF's image ends, .bss included)
+#   kr ... / jp ...                              (a line for one release only)
+#
+# Every entry says why. Prefer the narrowest mask that explains a difference.
+
+range all 00000000 00100000 the EE kernel's area: empty in the port, which has no kernel
+sym D_1FE0000 20000 the main thread's stack (crt0: SetupThread(_gp, 0x1fe0000, 0x20000)); the port's stack is in its own area
+sym _args - the kernel's argv for main(), which the port's host does not fill
+# The replaced libraries' own data. The port runs shims instead of their code (common/shims/),
+# so their variables never change in the Core: semaphore and thread ids, IOP-side addresses,
+# RPC packets, DMA environments. tools/lockstep_map.py checks every symbol named here exists.
+span dch impure_data libdma, libpad, libcdvd and libmc .data
+sym tty_opened 4 the kernel library's tty state (glue.c)
+kr span kernEventThreadId data_DATA_END the kernel, SIF, file I/O and IOP-load libraries' .data
+jp span alarm_handler data_DATA_END the kernel, SIF, file I/O and IOP-load libraries' .data
+kr span sceDmaCurrentEnv elf_end the replaced libraries' .bss: libdma to deci2 and the exception register save area
+jp span padClient elf_end the replaced libraries' .bss: libpad to deci2
+sym pad_read_buf - the pads' DMA buffers (scePadPortOpen), which the IOP rewrites every vblank; the game reads them only through scePadRead
+sym meter_time - the debug CPU meter's readings of the EE timer (meter.c reads T0_COUNT directly); the port's timers are plain memory
+sym gCd 28 the sound driver's RPC client (sceSifClientData): libsif keeps its IOP-side state there; the game reads only serve
+# Fields of a structure the game allocates, through the pointer variable that holds it: the
+# recorder reads the pointer at the end of each field and masks <size> bytes at <offset> in each
+# of <count> entries <stride> apart (a per-field mask in the trace).
+#   ptrfield <pointer symbol> <offset> <size> <stride> <count> [when <symbol>=<value>] [key <offset>:<bytes>=<value>] <reason>
+# "when": only while that u32 variable holds the value; "key": only the entries whose field at <offset>
+# (1, 2 or 4 bytes) holds the value. Offsets, sizes, strides and values are hex, counts decimal.
+ptrfield BgWork 4 4 3c 640 BG_WORK.CellAddr: BgWork_Initial copies it from a BGINIT_ARG that BG_LoadTexture never sets, so the EE stores a leftover stack word and the port zero (it zero-fills locals); nothing reads it
+sym impure_data+0x38 8 newlib's stdio state in _reent (__sdidinit, __cleanup): the EE's debug printf initialises stdio; the port's C library has no newlib stdio
+sym impure_data+0x1d8 114 newlib's stdio state in _reent (__sglue and the three FILEs __sf), for the same reason
+ptrfield EffectWork dc 4 11c 160 when StageNo=7 key 4:2=80 CHARACTER_WORK.RHitBackx of stage 7's background objects (idno 0x80): BG_Init creates them with CREATE_ARG flag 0x65, which copies tx and ty, and never sets ty, so the EE stores a leftover stack word and the port zero; the rest of the trace shows nothing reads it

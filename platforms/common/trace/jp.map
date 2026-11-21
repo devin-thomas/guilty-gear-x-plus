@@ -1,0 +1,189 @@
+ggx-lockstep-map 1
+release JP 2 SLPS_201.37
+elf_sha256 8bd352acb95a533abd22f11c7f9da4a3157dc8836fc7d91ae8340bde92d8a411
+field 001002b0 493d
+env 1 sceGsSyncV 001b84a8 aab6 -
+env 2 scePadRead 001bac98 a468 a2:8
+env 3 scePadGetReqState 001bae30 2dff -
+env 4 sceSifCheckStatRpc 001ce698 c20e -
+env 5 sceSifCallRpc 001ce4a8 fecd t1:t2
+env 6 sceCdSync 001bc458 cf80 -
+env 7 sceCdRead 001bcc78 b57f -
+env 8 sceCdSearchFile 001bbf50 ac8e a0:32
+env 9 sceCdGetError 001bcf08 4a65 -
+env 10 sceCdDiskReady 001bc9b8 bcd1 -
+env 11 sceCdInit 001bc6d8 0b75 -
+env 12 sceCdMmode 001bcbb0 19aa -
+env 13 sceCdStop 001bce58 dfbb -
+env 14 sceGsResetGraph 001b7d88 4b89 -
+env 15 sceGsSetDefDispEnv 001b7f90 346b -
+env 16 sceGsSetDefDrawEnv 001b82c0 f558 -
+env 17 sceGsSetDefStoreImage 001b8858 5550 -
+env 18 sceGsPutDispEnv 001b8200 29ea -
+env 19 sceGsResetPath 001b7f28 6551 -
+env 20 sceGsSyncPath 001b8540 ae9f -
+env 21 sceGsExecStoreImage 001b8998 6ac0 -
+env 22 sceDmaReset 001b9150 72db -
+env 23 sceDmaGetChan 001b9128 f86f -
+env 24 sceDmaSend 001b9478 fb6a -
+env 25 sceDmaSync 001b99c8 d49f -
+env 26 sceDmaGetEnv 001b9418 41c2 -
+env 27 sceDmaPutEnv 001b9240 1033 -
+env 28 sceDevVif0Reset 001ba288 7b7c -
+env 29 sceDevVu0Reset 001b9bd8 f527 -
+env 30 sceDevGifPutImtMode 001ba038 4a8b -
+env 31 FlushCache 001cb820 f562 -
+env 32 sceMcInit 001bcfa0 660c -
+env 33 sceMcGetInfo 001bdad8 82aa -
+env 34 sceMcSync 001bd9a0 7556 a1:4 a2:4 33.a2:4 33.a3:4 33.t0:4
+env 35 sceMcOpen 001bd300 bdc1 -
+env 36 sceMcClose 001bd470 5e72 -
+env 37 sceMcRead 001bd690 b18e -
+env 38 sceMcWrite 001bd7b0 5ba5 -
+env 39 sceMcMkdir 001bd438 e1fa -
+env 40 sceMcChdir 001bde40 b1af -
+env 41 sceMcGetDir 001bdc60 0f20 -
+env 42 sceMcDelete 001be058 5e79 -
+env 43 sceMcFormat 001bdf90 157d -
+env 44 scePadInit 001ba6e8 b253 -
+env 45 scePadPortOpen 001ba948 0637 -
+env 46 scePadSetActAlign 001bb3a0 7d37 -
+env 47 scePadSetActDirect 001bb2e8 7468 -
+env 48 sceSifInitRpc 001cdc68 18e7 -
+env 49 sceSifRebootIop 001d3040 126f -
+env 50 sceSifSyncIop 001d3008 6bf5 -
+env 51 sceFsReset 001cf3a0 0a11 -
+env 52 sceSifLoadModule 001d2b40 53f5 -
+env 53 sceSifBindRpc 001ce2d8 e81b -
+env 54 sceOpen 001cf3d8 2d15 -
+env 55 sceWrite 001cfc88 39a2 -
+env 56 sceClose 001cf660 cc65 -
+ret 00100164 94b8
+ret 0010016c 94be
+ret 00100174 d343
+ret 00100190 78ae
+ret 001001a0 ce10
+ret 001001b0 8a7e
+ret 001001b8 d4a7
+ret 001001c0 42ed
+ret 001001c8 6a34
+ret 00100290 9836
+ret 00100550 165a
+ret 00100558 b94a
+ret 00100560 39ee
+ret 00100568 b3af
+ret 00100570 b1c8
+ret 00100580 09b0
+ret 00100590 49ce
+ret 001005a4 1068
+ret 001005c0 878b
+ret 001005dc 910f
+ret 001006e8 30ce
+ret 001006f0 0134
+ret 00100824 9068
+ret 0010082c 0cd2
+ret 00100850 c7a7
+ret 00100a28 6ae8
+ret 00100a30 b935
+ret 00100a74 716f
+ret 00100a8c 5129
+ret 00100a94 aeab
+ret 00100b70 1eb6
+ret 00100b88 97a6
+ret 00100b94 3b4f
+ret 00100c08 8d99
+ret 00100c1c 94a6
+ret 00100c44 aa7f
+ret 00100c88 8330
+ret 00101298 597c
+ret 001012a0 a66c
+ret 001012b4 2a31
+ret 001012bc a39e
+ret 001012c8 0f20
+ret 00101354 d53d
+ret 0010135c 2eef
+ret 00101374 b751
+ret 00101424 b129
+ret 0010142c e9a4
+ret 00101444 0c5a
+ret 00101458 d73c
+ret 001014c4 d6bd
+ret 001014d8 552d
+ret 001014e0 590f
+ret 00105c0c 8548
+ret 00105c38 c16b
+ret 00105c48 0476
+ret 00105cc8 e4f8
+ret 00105ce0 f092
+ret 00105de0 4791
+ret 00105e44 382b
+ret 00105e5c 87f3
+ret 00105f5c 004f
+ret 001060ac c6b3
+ret 00106104 1791
+ret 00106164 6906
+ret 001064a0 91db
+ret 001065f0 241f
+ret 001069a4 d9a0
+ret 00106a8c 0d26
+ret 00106b5c bd83
+ret 00106bb4 8d9e
+ret 00106bd0 a62a
+ret 00106bec 3ce9
+ret 00106d00 d2a4
+ret 00106d10 3a78
+ret 00106dc4 4bc4
+ret 001a9514 2ae0
+ret 001a9554 6cfc
+ret 001a9590 ff15
+ret 001a95cc a91c
+ret 001a9720 d359
+ret 001a97cc 4933
+ret 001a98c8 6421
+ret 001a98e0 31f3
+ret 001a9964 779e
+ret 001a9f5c 8a23
+ret 001aa634 b5bd
+ret 001aa690 ac69
+ret 001aa6b0 44a6
+ret 001aa758 21eb
+ret 001aa800 6a87
+ret 001aa8ac a864
+ret 001aa9bc 248d
+ret 001aa9d8 e558
+ret 001aaa14 0d63
+ret 001aaa44 9dcc
+ret 001aab94 3115
+ret 001aac40 6f64
+ret 001aac8c 4e50
+ret 001aaccc a2f8
+ret 001aacf8 f30b
+ret 001aad60 11ae
+ret 001aad98 d034
+ret 001aadcc 3b2a
+ret 001aadf0 86ab
+ret 001aae68 0f97
+ret 001aae94 6ca9
+ret 001aaeb8 4466
+ret 001aaf40 1a32
+ret 001aaf88 1fac
+ret 001aafb0 cc73
+ret 001ab028 0f17
+ret 001ab050 263d
+ret 001ab094 0f0f
+ret 001ab0b0 6c9a
+inflight 7 a2 a1 2048 6 0
+mask 00000000 00100000 the EE kernel's area: empty in the port, which has no kernel
+mask 00217ee0 00000420 the debug CPU meter's readings of the EE timer (meter.c reads T0_COUNT directly); the port's timers are plain memory
+mask 00218380 00000200 the pads' DMA buffers (scePadPortOpen), which the IOP rewrites every vblank; the game reads them only through scePadRead
+mask 005b5520 00001bb0 libdma, libpad, libcdvd and libmc .data
+mask 005b7108 00000008 newlib's stdio state in _reent (__sdidinit, __cleanup): the EE's debug printf initialises stdio; the port's C library has no newlib stdio
+mask 005b72a8 00000114 newlib's stdio state in _reent (__sglue and the three FILEs __sf), for the same reason
+mask 005b7840 00000004 the kernel library's tty state (glue.c)
+mask 005b7848 000008b8 the kernel, SIF, file I/O and IOP-load libraries' .data
+mask 005cca80 00000148 the kernel's argv for main(), which the port's host does not fill
+mask 005e0a80 00000028 the sound driver's RPC client (sceSifClientData): libsif keeps its IOP-side state there; the game reads only serve
+mask 00620b00 00005a0c the replaced libraries' .bss: libpad to deci2
+mask 01fe0000 00020000 the main thread's stack (crt0: SetupThread(_gp, 0x1fe0000, 0x20000)); the port's stack is in its own area
+ptrmask 005cb2a8 4 4 3c 640 00000000 0 ffff 0 0 BG_WORK.CellAddr: BgWork_Initial copies it from a BGINIT_ARG that BG_LoadTexture never sets, so the EE stores a leftover stack word and the port zero (it zero-fills locals); nothing reads it
+ptrmask 005cb2a0 dc 4 11c 160 005cb2f0 7 4 2 80 CHARACTER_WORK.RHitBackx of stage 7's background objects (idno 0x80): BG_Init creates them with CREATE_ARG flag 0x65, which copies tx and ty, and never sets ty, so the EE stores a leftover stack word and the port zero; the rest of the trace shows nothing reads it

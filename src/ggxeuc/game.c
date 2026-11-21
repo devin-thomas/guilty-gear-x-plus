@@ -709,6 +709,15 @@ int pause_training(int pos)
     };
     int alpha;
 
+/* PT_HW(pos) is hw[tr_info->cnfside][pos]. Switching to the PRACTICE page (2 rows) from a longer one can leave pos
+   past the row's 9 entries: the EE then reads and writes hw[2][9], past the end of hw. The Core keeps hw at its PS2
+   address, so the port makes the same accesses through the address, without the out-of-bounds subscript (UBSan,
+   PORT-015). The matching build's expansion is the original subscript. */
+#ifdef GGX_PORT
+#define PT_HW(i) (*(HEADWORK *)((unsigned int)hw + ((unsigned int)tr_info->cnfside * 9u + (unsigned int)(i)) * (unsigned int)sizeof(HEADWORK)))
+#else
+#define PT_HW(i) hw[tr_info->cnfside][i]
+#endif
     if (tr_info->clear == 0) {
         pause_training_common_init(hw[0], 1);
         pause_training_enemy_init(hw[1], 1);
@@ -766,7 +775,7 @@ int pause_training(int pos)
             sc.cnt[pad - 1]++;
         } else if ((pad = iodat_chk(0x8000)) != 0) {
             if (sc.cnt[pad - 1] == 0 || (sc.cnt[pad - 1] > 16 && !(sc.cnt[pad - 1] & 3))) {
-                if (hw[tr_info->cnfside][pos].maxhead > 0) {
+                if (PT_HW(pos).maxhead > 0) {
                     int ret;
 
                     if (tr_info->cnfside == 1 && pos == 6) {
@@ -776,29 +785,29 @@ int pause_training(int pos)
                         ret = 1;
                         sound_request(0x37);
                     }
-                    hw[tr_info->cnfside][pos].pos--;
+                    PT_HW(pos).pos--;
                     if (tr_info->cnfside == 2 && pos == 1) {
                         if (hw[2][1].pos < 0) hw[2][1].pos = tr_info->pracnomax - 1;
-                    } else if (hw[tr_info->cnfside][pos].pos < 0) {
+                    } else if (PT_HW(pos).pos < 0) {
                         if (ret == 0) {
-                            hw[tr_info->cnfside][pos].pos = 0;
+                            PT_HW(pos).pos = 0;
                         } else {
-                            hw[tr_info->cnfside][pos].pos = hw[tr_info->cnfside][pos].maxhead - 1;
+                            PT_HW(pos).pos = PT_HW(pos).maxhead - 1;
                         }
                     }
-                } else if (hw[tr_info->cnfside][pos].maxhead == -1) {
+                } else if (PT_HW(pos).maxhead == -1) {
                     int num;
 
                     num = ((pads[0].data | pads[1].data) & 0x20) ? 10 : 1;
                     sound_request(6);
-                    hw[tr_info->cnfside][pos].pos -= num;
-                    if (hw[tr_info->cnfside][pos].pos < -128) hw[tr_info->cnfside][pos].pos = -128;
+                    PT_HW(pos).pos -= num;
+                    if (PT_HW(pos).pos < -128) PT_HW(pos).pos = -128;
                 }
             }
             sc.cnt[pad - 1]++;
         } else if ((pad = iodat_chk(0x2000)) != 0) {
             if (sc.cnt[pad - 1] == 0 || (sc.cnt[pad - 1] > 16 && !(sc.cnt[pad - 1] & 3))) {
-                if (hw[tr_info->cnfside][pos].maxhead > 0) {
+                if (PT_HW(pos).maxhead > 0) {
                     int ret;
 
                     if (tr_info->cnfside == 1 && pos == 6) {
@@ -808,23 +817,23 @@ int pause_training(int pos)
                         sound_request(0x37);
                         ret = 1;
                     }
-                    hw[tr_info->cnfside][pos].pos++;
+                    PT_HW(pos).pos++;
                     if (tr_info->cnfside == 2 && pos == 1) {
                         if (hw[2][1].pos >= tr_info->pracnomax) hw[2][1].pos = 0;
-                    } else if (hw[tr_info->cnfside][pos].pos >= hw[tr_info->cnfside][pos].maxhead) {
+                    } else if (PT_HW(pos).pos >= PT_HW(pos).maxhead) {
                         if (ret == 0) {
-                            hw[tr_info->cnfside][pos].pos = hw[tr_info->cnfside][pos].maxhead - 1;
+                            PT_HW(pos).pos = PT_HW(pos).maxhead - 1;
                         } else {
-                            hw[tr_info->cnfside][pos].pos = 0;
+                            PT_HW(pos).pos = 0;
                         }
                     }
-                } else if (hw[tr_info->cnfside][pos].maxhead == -1) {
+                } else if (PT_HW(pos).maxhead == -1) {
                     int num;
 
                     num = ((pads[0].data | pads[1].data) & 0x20) ? 10 : 1;
                     sound_request(6);
-                    hw[tr_info->cnfside][pos].pos += num;
-                    if (hw[tr_info->cnfside][pos].pos > 128) hw[tr_info->cnfside][pos].pos = 128;
+                    PT_HW(pos).pos += num;
+                    if (PT_HW(pos).pos > 128) PT_HW(pos).pos = 128;
                 }
             }
             sc.cnt[pad - 1]++;
@@ -848,6 +857,7 @@ int pause_training(int pos)
     } else {
         sc.grpvar[0] = 0;
     }
+#undef PT_HW
     return pos;
 }
 
@@ -967,8 +977,25 @@ int chk_selectok(int no)
 {
     chk_selectok_flgtb flg = D_5BB158;
 
+#ifdef GGX_PORT
+    /* pause_training asks about entry 9 of a row after a page switch (PT_HW there). In rows 0 and 1 the EE reads
+       the next row's first entry, which the port reads the same way, as one flat table. Past the table's end, in
+       row 2, it reads the last word of its own stack frame, which it never writes: a leftover the port can't
+       know. The port answers as the table's -1 there ("no entry"), which ends pause_training's search, and reads
+       nothing past the table, which would be undefined in C (UBSan, PORT-015). */
+    {
+        unsigned int k = (unsigned int)tr_info->cnfside * 9u + (unsigned int)no;
+        int v;
+
+        if (k >= 27u) return 0;
+        v = (&flg.flg[0][0])[k];
+        if (v == -1) return 0;
+        return v != tr_info->tene.mode;
+    }
+#else
     if (flg.flg[tr_info->cnfside][no] == -1) return 0;
     return flg.flg[tr_info->cnfside][no] != tr_info->tene.mode;
+#endif
 }
 
 void pause_training_enemy_init(HEADWORK *hw, int flg)

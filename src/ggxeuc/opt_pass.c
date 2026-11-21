@@ -164,6 +164,15 @@ flg = 0; sc.cnt[0] = passidx = passmode = pos = 0; sc.cnt[1] = 0;        return;
             if (passbuf[passidx] > 0) {
                 sound_request(0x39);
                 passidx++;
+#ifdef GGX_PORT
+                /* After the eighth letter the EE writes passbuf[8], one past the array: the first word of
+                   winner.c's ko() static sprite, which follows passbuf in .bss on both discs. The Core keeps
+                   every static at its PS2 address, so the port makes the same write through the address,
+                   without the out-of-bounds subscript (UBSan, PORT-015). */
+                if (passidx == 8) {
+                    *(int *)((unsigned int)passbuf + sizeof(passbuf)) = 1;
+                } else
+#endif
                 passbuf[passidx] = 1;
             }
         }

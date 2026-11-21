@@ -1,0 +1,16 @@
+ggx-lang 1
+# The English text layer for Guilty Gear X Plus (PORT-014): every text
+# picture on both discs. Format: ../LANG-FORMAT.md; how it's written: STYLE.md.
+lang en
+
+include story-sol-ky.lang
+include story-may-millia.lang
+include story-axl-potemkin.lang
+include story-chipp-zato.lang
+include story-baiken-faust.lang
+include story-testament-jam.lang
+include story-anji-johnny.lang
+include story-venom-dizzy.lang
+include quotes-sol-baiken.lang
+include quotes-faust-justice.lang
+include gallery-moves.lang

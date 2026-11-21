@@ -739,7 +739,14 @@ void PlayerSpeedCalc(CHARACTER_WORK *offset)
         y = 0;
     }
     x = x * x;
+#ifdef GGX_PORT
+    /* SpeedSv is a short and a fast character's speed is past 32767, which C leaves undefined for a float. The
+       EE converts to an int (cvt.w.s) and stores the low half; the port does the same in two defined steps
+       (UBSan, PORT-015). */
+    offset->ply->SpeedSv = (short)(int)nlSqrt(x + y);
+#else
     offset->ply->SpeedSv = nlSqrt(x + y);
+#endif
 }
 
 void Char2ScreenCollision(CHARACTER_WORK *offset);

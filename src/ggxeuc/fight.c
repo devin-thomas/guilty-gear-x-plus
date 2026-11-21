@@ -2536,6 +2536,18 @@ void PerfectDispMain(void)
                 polydraw_GBox((int)(w + 288.0f), 186.0f, (int)(w + 320.0f), 250.0f, 3.0f, 0xFFFFFF, 0xFFFFFFFF, 0xFFFFFF, 0xFFFFFFFF);
                 polydraw_GBox((int)(w + 320.0f), 186.0f, (int)(w + 352.0f), 250.0f, 3.0f, 0xFFFFFFFF, 0xFFFFFF, 0xFFFFFFFF, 0xFFFFFF);
             }
+#ifdef GGX_PORT
+            /* The fade's alpha is a char, and these steps take it out of a char's range, which C leaves
+               undefined. The EE converts the double to an int (__fixdfsi) and stores its low byte; the port
+               does the same in two defined steps (UBSan, PORT-015). */
+            if (fightctrl_time >= 41 && fightctrl_time < 44) {
+                a = (char)(int)(a + 63.75);
+            } else if (fightctrl_time == 44) {
+                a = -1;
+            } else if (fightctrl_time >= 45 && fightctrl_time < 52) {
+                a = (char)(int)(a - 31.875);
+            }
+#else
             if (fightctrl_time >= 41 && fightctrl_time < 44) {
                 a += 63.75;
             } else if (fightctrl_time == 44) {
@@ -2543,6 +2555,7 @@ void PerfectDispMain(void)
             } else if (fightctrl_time >= 45 && fightctrl_time < 52) {
                 a -= 31.875;
             }
+#endif
             if (fightctrl_time >= 41 && fightctrl_time < 52) {
                 polydraw_FBox(0, 0, 640.0f, 480.0f, 7.0f, (a << 24) | 0xFFFFFF);
             }

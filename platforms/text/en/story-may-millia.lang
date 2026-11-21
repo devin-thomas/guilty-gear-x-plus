@@ -1,0 +1,209 @@
+ggx-lang 1
+
+# May's story (encounters: Ky, Chipp, Millia, Johnny, Testament, Dizzy, Anji; Johnny's rescue at the end)
+[story-39]
+releases KR JP
+file 39
+layout block
+
+000 On that day, when the rain kept pouring down,|that man held out his umbrella to me.
+001 Because I was looking for my father,|that man became my father.
+002 But I'm selfish.
+003 Now there's something I want more than a father.
+004 Tomorrow is Johnny's birthday.|So......
+005 I have to go find him the most amazing present!
+006 You there, young lady.
+007 (Ooh, he's pretty cute!)
+008 Huh, what?
+009 It's dangerous up ahead. There's a wanted fugitive about.
+010 Great! That's the bounty I'm looking for!
+011 It's dangerous, so I really think you ought to go home.
+012 Hey! Are you treating me like a kid?
+013 Do I have to show you what a bounty hunter can do?
+014 ...No, I'd stop even an adult from going here... What a fix...
+015 Have you seen a wanted fugitive around here?
+016 What, just a brat.
+017 What did you say?! You're just a kid with grey hair!
+018 Why you! You're just a brat! Brat, brat, brat!
+019 You're just a grey-hair! Grey-hair, grey-hair, grey-hair!
+020 (What a beautiful lady...)
+021 What's the matter? It's dangerous here.
+022 ...Um, I'm looking for a bounty.
+023 I see. So am I. Sorry, but would you step aside?
+024 Um... but, Johnny's birthday is...
+025 You have nice eyes. Eyes that know happiness.|But I can't give this one up.
+026 (...Her eyes look so sad.)
+027 Then I'll fight you!
+028 Whaa! Why is Johnny here?
+029 That's my line. Didn't I leave you in charge of the ship while I was away?
+030 Um......
+031 (I can't tell him that!)
+032 I've got my reasons too. I can't let you through.
+033 Your reasons... I bet it's another pretty lady again!
+034 No, it's not like that--
+035 (...though it is...)
+036 I knew it! Get out of my way!
+037 Hm... a child. Weren't you told not to enter this forest?
+038 I'm not a child! I came looking for the Gear with the bounty on it!
+039 ...A child so young, making killing her trade.|Has mankind rotted so far?
+040 Uh, um...|(I was only going to catch it, though...)
+# "This body" is literal; probably Testament's Gear body and its instincts. The register may need adjusting.
+?041 In this body, I cannot show mercy, even to a child.
+042 If you do not wish to die, go home now.
+043 W-wait a minute!
+044 Found you!
+045 Oh, what a cute visitor. Have you come to play?
+046 (She's throwing me off...)
+047 Not exactly, but...
+048 What a shame. Visitors from outside hardly ever come here.
+049 ...Isn't that because that old guy earlier chases them all off?
+050 Yes. He protects me, but......
+051 That's a pretty extreme way to protect someone.
+052 ...Oh, right.
+053 I came here to catch you.
+054 To... catch me?
+055 Nothing personal, but you're coming with me!
+056 Sorry, did that hurt?
+057 I'm all right. I'm just... a little sad.
+058 (She wasn't even trying.)
+059 Sorry, I guess I got it wrong.
+060 They said you had a bounty on you, so I thought you'd be someone much worse.
+061 My crime is being a Gear...|being different from people.
+062 That's not fair!
+063 You are kind. But it seems there is no place for me in the world of people.
+064 There is! It's a bit off the straight and narrow...|and the police chase us sometimes, but...
+065 Oh, that sounds like fun.
+066 Then it's settled. A new crew member, huh......
+067 She'll make a great present for Johnny.
+068 What kind of person is Mr. Johnny?
+069 Johnny?
+070 About Johnny? I'll tell you lots and lots!
+071 Aww, I lost......
+072 You there, young lady passing by! May I offer you a dance?
+073 Another weirdo shows up......
+074 No doubt about it. You're Japanese.
+075 Whaat? What's that, "Japanese"?
+076 Hmm!
+# Anji's surprise is that a Japanese person was out in the world when Justice was sealed (May's age), outside the protected colonies; the exact sense is uncertain.
+?077 To think there was a Japanese out there even when Justice was sealed......
+078 Whoa!
+079 ...Get lost!|Right now.
+080 Johnny!
+081 Hey! Has my little princess been doing well?
+082 Hey, Johnny?|My parents......
+083 (Were they that "Japanese"?)
+084 Hm?
+085 It's you, Johnny, and everyone, right?
+086 Yeah. If someone like me will do.
+087 (I'll have to tell her someday. But for now......)
+088 I love you, Johnny!
+
+# no text: 089 090 091 092 093 094 (illustrations)
+
+# Millia Rage's story (encounters: Jam, Axl, May, Ky, Chipp, Venom, Zato-1/Eddie; then two endings)
+[story-40]
+releases KR JP
+file 40
+layout block
+
+000 An assassin is a heartless doll.
+001 Moving as she is told,|killing as she is told.
+002 No taboo against killing;|she kills without even the will to kill.
+003 In the end, I was not a doll.|That was the softness of the man who raised me.
+004 I suppose I should be grateful.|It's thanks to that that I have a heart.
+005 Even if what it holds...|is the will to kill him.
+006 I'm sorry, but...|would you let me have this one?
+007 That bounty is mine to chase! I'll catch it, and the money to build my restaurant is mine!
+008 ......How dazzling.
+009 So you have a dream.
+# A name in the original: "Jam's restaurant", boasting it is peerless and packed with customers.
+010 Peerless under heaven, packed with customers:|Jam's Restaurant!
+011 When this is over, I'd like you to treat me to a meal.
+012 But......
+013 Got it? Now that you've got it, we fight fair and square!
+014 I'm sorry......|I can't lose.
+015 Whew! You there, blonde lady passing by!
+016 ......
+017 Fancy a cup of tea with me?
+018 ...Don't look at me with those filthy eyes!
+019 That bounty's mine!
+020 Will you tell me? What do you plan to use the bounty for?
+021 Of course! It's for Johnny!
+022 Johnny?
+023 Johnny is the coolest, most handsome guy in the world...
+024 A little dangerous, mysterious, he's just perfect!
+025 I'm going to use the bounty|to buy him the most amazing present!
+026 A girl in love, is it?|That's beautiful.
+027 Right?! Nobody can ever come between Johnny and me!
+028 So......
+029 Go home now.
+030 You'd best not come any further into the underworld.
+031 You must be Ms. Millia Rage. I am Ky Kiske, of the International Police Force.
+032 What do the police want?
+033 I ask your cooperation in arresting Zato-1, a felon on the run.
+034 I refuse. He is... my prey.|I won't hand him to you.
+035 Don't Touch!|Get in my way and you'll get hurt!
+036 You're the one in the way.
+037 And what do you plan to do with bounty money, anyway?
+038 Me... I'm gonna be President!|I'm gonna change this rotten world!
+039 Heh. Hahahaha.
+040 Why you!
+041 Don't be angry.
+042 It's been a long time since I laughed.|Now, show me what the future President can do!
+043 ......So it's you.
+044 Since we hunt the same man,|I thought we'd meet sooner or later.
+045 Deserters are to be cut down, as I recall.
+046 Can you cut me down?
+047 I can.|For his sake!
+048 ......For him, is it.
+049 Then so is mine.
+050 Zatooo!
+051 A guest? Have you business with this "me"?
+052 ...So he has taken over your mind.
+053 I have no business with you.
+054 Give me Zato.
+055 M-Millia!|Milliaaa!
+056 You are my past.
+057 Now I'll cut you away!
+058 Interesting.|Let's see you try!
+# Eddie; "time to let this body go" vs "this body is finished too" - the original is terse.
+?059 This body, too......|perhaps it's time.
+060 Wait!
+061 Farewell.
+062 Tch!|It got away from me.
+063 Millia......|it's you.
+064 What's that look on your face!|Why aren't you afraid! Beg for your life!
+065 Millia......|I... to you......
+066 Don't die!|Don't run away from me!
+067 Forgive...... me......
+068 Coward......|You were always like that.
+069 Why......|even at the very end......
+070 Gahh!
+# Speaker and target are not shown; likely Millia to Eddie in the other ending.
+?071 Return to dust.
+072 Dead......, is he.|How quick.
+073 What is this feeling......
+074 He's dead, and yet|I'm neither glad|nor sad.
+075 Only...... yes.|An endless calm.
+076 "Millia" died along with Zato-1.|Then who am I, standing here?
+077 There you are, Ms. Millia!
+078 What are you here for?
+079 Didn't I tell you?|I'm a fan of yours.
+080 All that's here|is a dead woman.
+081 Don't say that!
+082 I don't know what happened,|but please, cheer up!
+083 ......Is that how it works?
+084 It is!
+085 Seeing you smile, Ms. Millia,|is what I live for.
+086 ......
+087 Oh, but you look beautiful|even when you're sad.
+088 But...... still......
+089 Something to live for, is it.|Do you think I'll find one too?
+090 You will!|I promise!
+091 ......A half-hearted promise|will cost you dearly.
+092 I'm ready for that.
+093 Good answer.
+094 Then let me test that resolve.
+095 Yes!
+
+# no text: 096 097 098 099 100 101 (illustrations)

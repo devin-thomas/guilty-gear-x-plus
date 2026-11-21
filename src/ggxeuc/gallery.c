@@ -426,7 +426,17 @@ void gal_select_mode(void)
             }
             sound_request(0x37);
             gl_info->no--;
-            while (gl_info->start[gl_info->no] == 0) {
+            /* Left from the first entry makes no -1, and the EE reads start[-1]: check[127], the field before it.
+               The port reads the same word through the address, without the out-of-bounds subscript (UBSan,
+               PORT-015). The macro keeps the loop's braces out of the #ifdef (tools/port_tu.py splits functions
+               by them). */
+#ifdef GGX_PORT
+#define GAL_START(n) (*(int *)((unsigned int)gl_info->start + (unsigned int)(n) * 4u))
+#else
+#define GAL_START(n) gl_info->start[n]
+#endif
+            while (GAL_START(gl_info->no) == 0) {
+#undef GAL_START
                 if (--gl_info->no < 0) {
                     gl_info->no = 97;
                 }

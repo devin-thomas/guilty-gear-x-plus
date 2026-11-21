@@ -267,7 +267,14 @@ void Opt_SoundTest(int sw) {
             }
         }
         stst_proc[mh.pos](&hw[mh.pos]);
+#ifdef GGX_PORT
+        /* With no tune playing plyno is -1, and the EE reads pbgm[-1].no: bytes just before the table. The Core
+           keeps every static at its PS2 address, so the port reads the same bytes through the address, without
+           the out-of-bounds subscript (UBSan, PORT-015). */
+        play_nextsnd(((PROFILE_BGM *)((unsigned int)pbgm + (unsigned int)opt.plyno * (unsigned int)sizeof(PROFILE_BGM)))->no);
+#else
         play_nextsnd(pbgm[opt.plyno].no);
+#endif
         for (i = 0; i < mh.maxhead; i++) {
             stst_font_proc[i](&hw[mh.pos]);
         }

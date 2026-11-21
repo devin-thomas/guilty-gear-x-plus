@@ -1,10 +1,10 @@
 # Legal
 
-This repository holds a matching decompilation of *Guilty Gear X Plus* for the PlayStation 2. A native port will follow in `platforms/`. The repository contains source code and documentation only.
+This repository holds a matching decompilation of *Guilty Gear X Plus* for the PlayStation 2, and in `platforms/` a native PC port for Windows and macOS built from the same C. The repository contains source code and documentation, and screenshots of the game and the port running.
 
 ## What is not here
 
-- No game assets: no graphics, sound, music, text dumps, fonts or video.
+- No game assets: no graphics, sound, music, text dumps, fonts or video taken from the game. Screenshots of the game or the port running are not assets: they are welcome in `docs/screenshots/` (PNG, JPEG or WebP, up to 2 MB each).
 - No binaries: no game executables, ELFs, overlays or IOP modules.
 - No disc data: no disc images, sectors or files taken from a disc.
 - No disassembly: no assembly listings of the game, split or whole. The build generates its own from your disc and keeps it out of git.
@@ -37,10 +37,12 @@ This is an unofficial fan project. It is not affiliated with, endorsed by or spo
 ## Licences
 
 - The decompilation (game C, headers, build scripts, configs and documentation) is dedicated to the public domain under [CC0 1.0](LICENSE).
-- `platforms/` (the port, when it lands) will be under the MIT licence.
+- `platforms/` (the port) is under the MIT licence ([platforms/LICENSE](platforms/LICENSE)). The port's release packages hold the port's programs, SDL3, two fonts and the English translation, each under its own licence, and nothing from the game.
 - Files that carry their own notice keep it. This applies to some C-runtime code in `src/sdk/`; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 The licences cover this project's own code. They grant no rights in the game, its code as shipped on the disc, or its assets.
+
+`platforms/text/en/` holds an unofficial English fan translation of the game's own text (story, win quotes, move lists and menus), which the port draws in place of the Korean or Japanese pictures. The game's text and story belong to Arc System Works; the licences above cover only this project's own work in those files, as far as it can be separated from the game's.
 
 ## Lineage
 

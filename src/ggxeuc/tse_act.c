@@ -212,7 +212,20 @@ void TSPH_Act3(CHARACTER_WORK *offset) {
         op.x = ObjWorld2ScreenX(offset->posx);
         op.y = ObjWorld2ScreenY(offset->posy);
         SetBlendingMode(1);
+#ifdef GGX_PORT
+        {
+            /* CircleDraw reads p[1].y as the ring's outer radius. The EE
+               keeps op right after p in the frame (sp+80, sp+96), so p[1]
+               is op and the radius op.y; pass the pair it reads. */
+            NL_POINT3 pp[2];
+
+            pp[0] = p;
+            pp[1] = op;
+            CircleDraw(pp, 0xFFFF0000, 0x55FFFF00, &op);
+        }
+#else
         CircleDraw(&p, 0xFFFF0000, 0x55FFFF00, &op);
+#endif
         SetBlendingMode(0);
         offset->Localid -= 60;
     } else {

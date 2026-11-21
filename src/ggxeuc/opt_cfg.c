@@ -173,6 +173,16 @@ void Opt_GameSetting(int sw)
         { "DEFAULT", 64.0f, 112.0f, 0, 0, 0 },
         { "EXIT", 64.0f, 112.0f, 0, 0, 0 },
     };
+#ifdef GGX_PORT
+    /* hw[].p keeps pointing at pt after Opt_GameSetting(0) returns
+       (Setting_Init). On the EE the later calls put pt at the same stack
+       address and fill it again; clang drops that fill in calls that never
+       read pt by name, so hw[].p would read a stale frame, and FontDraw a
+       string pointer from whatever ran there since (PORT-013: a rollback
+       test's inputs reached GAME SETTING with that frame overwritten, and the
+       Core trapped). One static copy reads as the EE's does. */
+    static
+#endif
     PARTS pt[20] = {
         { "BEGINNER", 224.0f, 0.0f, 96 },
         { "EASY", 328.0f, 0.0f, 48 },

@@ -857,6 +857,9 @@ void strloop(int fms)
         326.0f, 350.0f, 362.0f, 374.0f, 386.0f, 398.0f, 410.0f, 422.0f, 434.0f, 446.0f, 470.0f, 482.0f, 494.0f,
     };
     short fmstb[26] = { 5, 7, 9, 11, 13, 8, 10, 18, 20, 22, 24, 26, 28, 30, 16, 14, 12, 10, 8, 6, 4, 2, 0, 25, 23, 21 };
+#ifdef GGX_PORT
+#define STRLOOP_CH(i) (*(CHWORK *)((unsigned int)chwork + (unsigned int)(i) * (unsigned int)sizeof(CHWORK)))
+#endif
 
     if (fms == 0) {
         for (i = 0; i < 26; i++) {
@@ -978,11 +981,25 @@ void strloop(int fms)
             trnsl = 1.0f;
             mode = 0;
             count = 0;
+#ifdef GGX_PORT
+            /* The loop above leaves i at 26, and the EE writes chwork[26].mode, past the array, then reads it back
+               for count. The Core keeps chwork at its PS2 address, so the port makes the same accesses through the
+               address, without the out-of-bounds subscript (UBSan, PORT-015). */
+            STRLOOP_CH(i).mode = 0;
+#else
             chwork[i].mode = 0;
+#endif
             break;
         }
+#ifdef GGX_PORT
+        count += STRLOOP_CH(i).mode;
+#else
         count += chwork[i].mode;
+#endif
     }
+#ifdef GGX_PORT
+#undef STRLOOP_CH
+#endif
     if (count == 0) {
         mode = 0;
     } else if (count == 26) {

@@ -98,7 +98,15 @@ KEYDATA *PlayerKeyDataGet(int pl, int n) {
     int idx = KeyIndex[pl] - n;
 
     if (idx < 0) idx += 32;
+#ifdef GGX_PORT
+    /* IsCommand walks back further than the 32 fields a player's ring holds (n past KeyIndex + 32), and the EE
+       reads outside the player's row: the other player's, or before the array. The Core keeps CommandKeyData at
+       its PS2 address, so the port reads the same entry through the address, without the out-of-bounds
+       subscript (UBSan, PORT-015). */
+    return (KEYDATA *)((unsigned int)CommandKeyData + (unsigned int)(pl * 32 + idx) * (unsigned int)sizeof(KEYDATA));
+#else
     return &CommandKeyData[pl][idx];
+#endif
 }
 
 u_char KeyDataLRFlip(u_char key, int dir) {

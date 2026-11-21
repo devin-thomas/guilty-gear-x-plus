@@ -21,6 +21,7 @@ SLPS_201.37
 *.elf
 *.ld
 *.map
+!/platforms/common/trace/*.map
 
 # Python
 __pycache__/

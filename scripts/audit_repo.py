@@ -9,6 +9,7 @@ a plain directory) for:
 - assets, disc images and build products, by extension (images, audio, video,
   fonts, archives, .iso/.bin/.cue/.chd, .elf/.irx/.o/.a, ...);
 - logos and artwork: any image or icon file, and files named logo/banner/boxart;
+  except screenshots (below);
 - assembly: .s/.S/.asm/.inc files, `.incbin`, INCLUDE_ASM/INCLUDE_RODATA, and
   text with 10 or more lines that look like a disassembly listing (spimdisasm's
   `/* offset vram word */` comments, objdump's `addr: word  insn`, `glabel`);
@@ -21,6 +22,19 @@ a plain directory) for:
   syscall stubs at build time): every line must be a comment, blank, or a
   `number name [jp|kr]` row. A table holds names and numbers, never code.
 
+Screenshots are allowed: a captured frame of the running game or port is not game
+data. A PNG, JPEG or WebP file in a folder named `screenshots` (for example
+`docs/screenshots/`), whose content matches its extension and which is at most
+2 MB, is listed in the report as an allowed screenshot and is not a finding. Any
+other image (outside such a folder, over 2 MB, another format, or named like
+artwork) is a finding for review, listed by file. Nothing is skipped silently.
+
+A few files of the port in platforms/ would trip these checks and are not game data:
+two licensed fonts, the port's own compiled shaders and libchdr's CD-ROM error
+correction tables. KNOWN lists them by path, each with its reason and the SHA-256 of
+the file it was checked as; the report lists each one, and a file at that path with
+other content is a finding as usual.
+
 Writes a Markdown report. Exit status 1 if any finding is in scope.
 
   audit_repo.py [--root DIR] [--publish] [--extra DIR=PREFIX] [--out AUDIT.md]
@@ -28,6 +42,7 @@ Writes a Markdown report. Exit status 1 if any finding is in scope.
 In the public repo, run it with no arguments.
 """
 import argparse
+import hashlib
 import os
 import re
 import subprocess
@@ -66,6 +81,22 @@ MAGIC = [(0, b'\x7fELF', 'ELF binary'), (0x8001, b'CD001', 'ISO 9660 image'), (0
          (0, b'RIFF', 'RIFF audio/video'), (0, b'VAGp', 'PS2 VAG audio'), (0, b'\x00\x00\x01\xba', 'MPEG/PSS video'),
          (0, b'PK\x03\x04', 'zip archive'), (0, b'\x1f\x8b', 'gzip archive'), (0, b'\xfd7zXZ', 'xz archive'),
          (0, b'7z\xbc\xaf', '7z archive'), (0, b'OggS', 'Ogg audio'), (0, b'ID3', 'MP3 audio')]
+# Screenshots of the running game or port (allowed; see the docstring)
+SCREENSHOT_DIR = 'screenshots'
+SCREENSHOT_MAGIC = {'.png': [b'\x89PNG\r\n\x1a\n'], '.jpg': [b'\xff\xd8\xff'], '.jpeg': [b'\xff\xd8\xff'],
+                    '.webp': [b'RIFF']}
+SCREENSHOT_MAX = 2 * 1024 * 1024
+# Files of the port that are not game data but trip the checks (see the docstring): path -> (SHA-256, why)
+KNOWN = {
+    'platforms/text/fonts/DejaVuSerif.ttf':
+        ('b028fae357e71503231e2262c4c74a0e900ab8641899af4dc7668a7158791976', 'DejaVu Serif, subset; DejaVu fonts licence (text/fonts/LICENSE-DejaVu.txt)'),
+    'platforms/text/fonts/NotoSans-Regular.ttf':
+        ('acc7375814843f0f42d59619d7b0a133fcf7fe112f448eeedbd7fb79879464c7', 'Noto Sans, subset; SIL OFL 1.1 (text/fonts/LICENSE-NotoSans-OFL.txt)'),
+    'platforms/render/shaders/dl_shaders.h':
+        ('9dadf0b6d49246b7de2dd3725ba1e36df5b5bc084c60683590596188bdce81f6', "the port's own shaders, compiled (render/shaders/)"),
+    'platforms/third_party/libchdr/src/libchdr_cdrom.c':
+        ('7fc4515eb3598d88797b2786a560bd497720eb82f9b8c6391ba4ab7a74f5e351', "libchdr's CD-ROM ECC tables, vendored (BSD 3-Clause)"),
+}
 NAMED_ART = re.compile(r'(logo|banner|boxart|box-art|splash|artwork|cover-?art|key-?art)', re.I)
 LISTING = re.compile(r'/\*\s*[0-9A-Fa-f]{4,8}\s+[0-9A-Fa-f]{8}\s+[0-9A-Fa-f]{8}\s*\*/'
                      r'|^\s*[0-9a-fA-F]{6,8}:\s+[0-9a-fA-F]{8}\s+\w'
@@ -100,15 +131,44 @@ def largest_initializer(text):
     return best
 
 
-def audit_file(path, rel):
+def screenshot_status(rel, data):
+    """(True, why) for an allowed screenshot, (False, why) for an image that needs review, None otherwise."""
+    ext = Path(rel).suffix.lower()
+    if ext not in ASSET_EXT['image']:
+        return None
+    if SCREENSHOT_DIR not in Path(rel).parts[:-1]:
+        return False, f'image outside a {SCREENSHOT_DIR}/ folder: review it (a screenshot goes in {SCREENSHOT_DIR}/)'
+    if ext not in SCREENSHOT_MAGIC:
+        return False, f'{ext} in {SCREENSHOT_DIR}/: screenshots are PNG, JPEG or WebP'
+    if not any(data.startswith(m) for m in SCREENSHOT_MAGIC[ext]) or (ext == '.webp' and data[8:12] != b'WEBP'):
+        return False, f'{SCREENSHOT_DIR}/ file whose content is not {ext[1:].upper()}'
+    if len(data) > SCREENSHOT_MAX:
+        return False, f'screenshot of {len(data):,} bytes, over {SCREENSHOT_MAX:,}'
+    if NAMED_ART.search(Path(rel).name):
+        return False, 'screenshot named like a logo or artwork: review it'
+    return True, f'screenshot, {len(data):,} bytes'
+
+
+def audit_file(path, rel, allowed=None, known=None):
     found = []
     ext = Path(rel).suffix.lower()
+    data = path.read_bytes()
+    if rel in KNOWN and hashlib.sha256(data).hexdigest() == KNOWN[rel][0]:
+        if known is not None:
+            known.append((rel, KNOWN[rel][1]))
+        return found
+    shot = screenshot_status(rel, data)
+    if shot and shot[0]:
+        if allowed is not None:
+            allowed.append((rel, shot[1]))
+        return found
+    if shot:
+        found.append(('image', shot[1]))
     for kind, exts in ASSET_EXT.items():
-        if ext in exts:
+        if ext in exts and not (kind == 'image' and shot):
             found.append((kind, f'extension {ext}'))
     if NAMED_ART.search(Path(rel).name):
         found.append(('logo or artwork', 'file name'))
-    data = path.read_bytes()
     for off, magic, what in MAGIC:
         if data[off:off + len(magic)] == magic:
             found.append(('binary', what))
@@ -154,7 +214,7 @@ def main():
         d, _, prefix = e.partition('=')
         trees.append((Path(d).resolve(), prefix.strip('./') and prefix.rstrip('/') + '/', False))
 
-    findings, counts, methods = defaultdict(list), defaultdict(int), []
+    findings, counts, methods, screenshots, known = defaultdict(list), defaultdict(int), [], [], []
     total = 0
     for root, prefix, publish in trees:
         files, method = list_files(root)
@@ -164,8 +224,11 @@ def main():
                 continue
             total += 1
             counts[Path(rel).suffix.lower() or '(none)'] += 1
-            for kind, why in audit_file(root / rel, rel):
+            allowed, kn = [], []
+            for kind, why in audit_file(root / rel, rel, allowed, kn):
                 findings[kind].append((prefix + rel, why))
+            screenshots += [(prefix + r, why) for r, why in allowed]
+            known += [(prefix + r, why) for r, why in kn]
 
     lines = ['# Repo audit', '',
              f'Generated by `scripts/audit_repo.py`. Scanned {total:,} files: ' + '; '.join(methods) + '.', '',
@@ -174,7 +237,8 @@ def main():
              'logo or artwork', 'assembly', 'disc data', 'compiler dump']
     for k in kinds:
         lines.append(f'| {k} | {len(findings[k])} |')
-    lines += ['', '**Result: ' + ('clean.' if not findings else f'{sum(map(len, findings.values()))} findings.') + '**', '']
+    found = sum(map(len, findings.values()))   # findings is a defaultdict: the table above made a key per kind
+    lines += ['', '**Result: ' + ('clean.' if not found else f'{found} findings.') + '**', '']
     for k in kinds:
         if findings[k]:
             lines += [f'## {k}', '']
@@ -183,12 +247,20 @@ def main():
             if len(findings[k]) > 200:
                 lines.append(f'- ... and {len(findings[k]) - 200} more')
             lines.append('')
+    if known:
+        lines += [f'## Known port files (not game data, {len(known)})', '']
+        lines += [f'- `{rel}`: {why}' for rel, why in known]
+        lines.append('')
+    if screenshots:
+        lines += [f'## Screenshots (allowed, {len(screenshots)})', '']
+        lines += [f'- `{rel}`: {why}' for rel, why in screenshots]
+        lines.append('')
     lines += ['## File types scanned', '', ', '.join(f'{e} {n:,}' for e, n in sorted(counts.items(), key=lambda x: -x[1])), '']
     report = '\n'.join(lines)
     if a.out:
         Path(a.out).write_text(report, encoding='utf-8', newline='\n')
     print(report)
-    return 1 if findings else 0
+    return 1 if found else 0
 
 
 if __name__ == '__main__':

@@ -7,6 +7,7 @@
 - **No game data.** Don't commit assets, binaries, disc images, files from a disc, or disassembly of the game (split or whole), and don't link to them. The build generates its assembly from your own disc and keeps it out of git. See [LEGAL.md](LEGAL.md).
 - **No compiler.** The PS2 toolchain is fetched by `scripts/fetch_toolchain.py`. Never commit it.
 - **No logos or game artwork**, in the repository or in issues and pull requests.
+- **Screenshots are welcome.** A screenshot of the game or the port running goes in `docs/screenshots/` as PNG, JPEG or WebP, up to 2 MB. `scripts/audit_repo.py` lists each one; an image anywhere else is a finding to review.
 - **Only your own work, or code under a compatible licence that you name.** Don't copy from unlicensed projects, leaked SDKs or other decompilations without a licence. If you adapt licensed code, say where it comes from in the file's first comment and add it to [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Matching code
@@ -17,7 +18,7 @@
 
 ## Port code (`platforms/`)
 
-- Nothing visual or quality-of-life may change the Simulation Core. The lockstep traces must keep matching.
+- Nothing visual or quality-of-life may change the Simulation Core: the game logic must stay exact to the PS2 game. A change outside the Core leaves `core.wasm` with the hash in `platforms/core-wasm.sha256`.
 - Keep platform code out of the game C. The game C is shared with the matching build.
 
 ## Before you open a pull request

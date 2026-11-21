@@ -1,0 +1,205 @@
+ggx-lang 1
+
+# Win quotes, first nine characters (disc file 184). Group 019+n is the
+# winner named by picture 00(n+1)-001 (an English name logo on both discs).
+# Within a group, quote k is the line spoken against opponent k, in roster
+# order: 000 Sol, 001 Ky, 002 May, 003 Millia, 004 Axl, 005 Potemkin,
+# 006 Chipp, 007 Zato, 008 Baiken, 009 Faust, 010 Testament, 011 Jam,
+# 012 Anji, 013 Johnny, 014 Venom, 015 Dizzy, 016 Kliff, 017 Justice.
+
+[win-quotes-a]
+releases KR JP
+file 184
+layout block
+
+# Sol Badguy (name 001)
+019-000 Good grief...
+019-001 What's with that face? Don't look at me with those sour eyes.
+019-002 You came here ready for this, I take it?
+019-003 That's as far as I go easy. If you mean to get up again... you'd better be ready.
+019-004 Sorry, but I can't be bothered with you.
+019-005 Too slow...
+019-006 Can't you shut up for once?
+019-007 Done running your mouth? Then drop dead.
+019-008 Why are there so many damn women around? This is heavy...
+019-009 Bastard...
+019-010 You're damn persistent... Back off before that face you're so proud of gets rearranged.
+019-011 What are you gawking at? Waiting for some kind words? Get lost.
+019-012 What an in-your-face bastard.
+019-013 Not going to fight for real? You're a slippery one too...
+019-014 I've got no business with you either. Get lost.
+019-015 Don't cry, it's annoying. Disappear before I change my mind...
+019-016 Geez...... give it a rest, old man.
+019-017 So long...... rest now.
+
+# Ky Kiske (name 002)
+020-000 When you look at me like that... I can't feel that I've won...
+# KR differs: says he can no longer forgive one who deceives his men; JP followed.
+020-001 Posing as an officer to do some evil? I'm afraid none of my men would mistake an imitation for the real thing.
+020-002 Now then, this is a dangerous place, so I'll escort you to the exit.
+020-003 H-holding back?! True, I wasn't at full strength, but... any man would show that much restraint.
+020-004 Win or lose, we can shake hands with a smile. I hope we can always be that way, you and I.
+# KR has "for our countries" where JP has "servants of the public order".
+020-005 Had you taken off those shackles, I can't say who would have won. Let us both do our best as servants of the public order!
+020-006 I've never seen anyone with such speed. It took my eyes quite a while to adjust.
+020-007 Keep blaspheming and one day you will regret it. Repent.
+020-008 A sword style I've never seen, yet so perfect, without a single opening... I am deeply impressed.
+020-009 So many bizarre techniques... Have we met somewhere before?
+020-010 One lapse and I couldn't have dodged those combos from my blind spot. A fearsome opponent...
+020-011 Um... well... it might be better not to kick your legs up so high... I don't know where to look... I'm sorry!
+020-012 What supple movement. If I hadn't seen through it then, by now...
+020-013 Chivalrous hero or not, a crime is a crime. With power like yours, you should use it on the righteous path!
+020-014 True conscience lies in repenting your sins and mending your ways. If you can feel shame, others would welcome you, you know?
+020-015 Every one of your techniques hits terribly hard. Had I defended carelessly, by now...
+020-016 Thank you for the lesson. Splendid swordsmanship.
+020-017 ......So this is Justice, the commander of evil. What sorrowful eyes.
+
+# May (name 003)
+021-000 No matter who you are, nobody beats a girl in love!
+021-001 Nice guy... but still way too green! Not enough years on you.
+021-002 C-copying me won't get you close to Johnny! He never even looks my way! Ugh... that's so sad.
+021-003 I'm jealous. You can do whatever you want with your hair, right?
+021-004 Yeah, that range is my weak spot. Before I take on Johnny... would you go just one more round with me?
+021-005 Don't be down! Seems there are women out there who like macho guys.
+021-006 It was all super fast and I didn't really get it, but he went down fast too, this guy.
+021-007 (So gloomy... I'm getting all down now.) Um, I-I'll be going on ahead...
+021-008 (Whoa... she's so busty...) J-Johnny likes girls who are ladylike!
+021-009 Something's giving me the chills... You're bald, aren't you? Totally bald?
+021-010 You're a pretty boy, but so tough. I'm worn out.
+021-011 (Wow, pretty legs...) J-Johnny hates unladylike women!
+021-012 Isn't it dangerous to wear glasses while you fight!? Johnny's fine, though, 'cause he's totally perfect.
+021-013 Sorry, Johnny. But this is all for the sake of our love!
+021-014 Better than having none, but doesn't all that hair get in the way?
+021-015 (...What a risky costume.) Seducing Johnny won't work! ...I think...
+021-016 Wow, Grandpa, your hair's so thick... Got some secret?
+021-017 That's what you get for getting in Johnny's way! (...I won! I can't believe it!)
+
+# Millia Rage (name 004)
+# Idiom: helping one's enemy in need; she suspects Sol let her win.
+022-000 Going easy on your enemy? Well, I have no way back either, so this once I'll thank you...
+022-001 I won't say "and you call yourself a man," but... aren't you a little lacking in tension?
+022-002 Such clear, untroubled eyes... I hope you never forget that happiness.
+022-003 Do you know what I did to gain this power? Don't think you can copy it overnight.
+022-004 Don't look at me with those lecherous eyes.
+022-005 So hard...
+022-006 So fast...
+022-007 What are you smiling at... why are you so calm...? Be afraid...! Beg for your life! Stop unsettling me!!
+022-008 Your feelings run too far ahead... Without the calm to catch the smallest opening, you'll never catch my moves.
+022-009 Not that I'm consoling you, but they say people can start over...
+022-010 Better not move... Stay quiet like that and you'll die easy...
+022-011 If a dream can be cut short by an outcome like this, give it up.
+022-012 You really hate to lose. I don't mind people with eyes like that.
+022-013 Such a relaxed face. Insufferable man...
+022-014 You. You were his right hand, weren't you. Sorry, but I'm going to end him. Hate me if you must.
+022-015 Get inside your guard and you can't do much, it seems, but keep your distance and you're unbeatable.
+022-016 ......Men. No matter how old they get, they're hung up on size.
+022-017 My hair...... ruined.
+
+# Axl Low (name 005)
+023-000 How 'bout it, guv'nor? I've upped my game, eh?
+023-001 Now, now, don't be so stiff. Think of it as helping someone out and let me through, yeah?
+023-002 Whoops, guess I overdid it a bit. Sorry 'bout that.
+023-003 Guess I'll rethink that "only blondes for me" idea of mine...
+023-004 No, nooo! Not like that, like this! All my charm is packed into this million-dollar smile, see?
+023-005 Seems your ancestors aren't quite the same as ours. If I get the chance, I'll look into those roots.
+023-006 OK, OK! You were quick, but mine was longer. See, didn't you see how this'd end? Just kiddin'!
+023-007 Say, you... You can actually see, can't you?
+023-008 Dresses and China dresses aren't bad, but a kimono's just, y'know... sexy.
+023-009 It's kinda bad for my heart, y'know... Do me a favour and don't get back up.
+023-010 Jeez, from behind and from the front! My prized reach was no use at all.
+023-011 I've got two questions. One, why are girls these days so strong? And two, are you really a cook?
+023-012 With a dance like that you could make a living anywhere. But pick the stage you dance on.
+023-013 A silver flash that cuts through bullets! Just like a movie. Wrong leading man, though. Heh heh.
+023-014 Say, you're the type who sees things you shouldn't see, right?
+023-015 That was dicey, mate. I never want to fight that again.
+023-016 Bet you were a cool one in your younger days, gramps.
+023-017 H-how's that? That's the, th-the grit of humans.
+
+# Potemkin (name 006)
+024-000 My love of my country sustains me. I will not lose to one with nothing to protect!
+024-001 Do not hold back. Should you ask for a rematch, I will accept at any time.
+024-002 Don't stare at me as if I were some legendary rare beast...
+024-003 I am unused to fighting in three dimensions and could not judge my strength... Are you hurt?
+024-004 Long, yes! But thin. Attacks like that cannot halt my advance.
+024-005 Fool, to pose as me. Can you not tell there can never be two of me in this world?
+024-006 Your unyielding spirit is admirable, but one who doesn't know when to withdraw is merely unsightly.
+024-007 Begone! I cannot bear to look upon such a shameful display.
+024-008 The eyes of one who knows life-and-death combat. A warrior's resolve, though you are a woman!
+024-009 What shameless tactics! A back-breaking victory...
+024-010 You use eerie arts, but the attacks of soulless things are no match for me, however many come at once.
+024-011 I knew a spirit-charged fist beats sword and axe, but that a woman's resolve equals a man's... Truly a mystery of the East.
+024-012 A grown man enjoying this bout like a street brawl... What a refreshing fellow.
+024-013 A sword that kills with every stroke, perhaps, but don't waste words before you finish your opponent.
+024-014 Even raging rapids cannot stop the carp's ascent. I had no obligation to play by your style.
+024-015 Forgive me. President Gabriel has his reasons. You will not be ill-treated.
+024-016 Skill untouched by the years! Such resolve! I am truly impressed.
+024-017 Forgive me, but humanity must survive.
+
+# Chipp Zanuff (name 007)
+025-000 Point is, don't look down on us humans.
+025-001 Your girly face just pisses me off! Ever heard "might makes right"?
+025-002 Whoever comes at me, even women and kids, I show no mercy! ...But damn, that leaves a bad taste.
+025-003 Too much hassle to keep dealing with you. If I'd gone for real it'd have taken under a second. You're annoying, so stay away.
+025-004 You smirking creep. Thought I couldn't get close just 'cause your weapon's long?
+025-005 First, shave off that eyesore of meat! All the power in the world means nothing if it doesn't hit!
+025-006 Posing as me is one thing, but go on, steal my master's name. I'll wipe you out...!!
+025-007 If you can't get anything without sacrificing something, that proves you're third-rate. You'll never beat me.
+025-008 Good guts for a woman. So this is the "Yamato Nadeshiko" I've heard about?
+# Chipp gropes for a word for Faust and lands on a stock phrase of sympathy
+# ("my condolences", also "too bad for you"); the misfire is the joke.
+?025-009 Y-you... I can't find a word for you... I mean, you know, that one! "My condolences"...
+025-010 Lining up all those fancy moves, and this is your best shot? What a letdown!!
+025-011 Think seduction works on a shinobi? You're an eyesore, get lost!
+# Harisen: a pleated paper fan used for comic slaps (Anji fights with fans).
+025-012 You! Making fun of me 'cause I'm not Japanese? A "harisen" isn't a weapon! ...Right?
+025-013 I hate guys who run in packs. Guys who chase skirts make me sick too. So I put a little extra into it.
+025-014 Tell me something. That getup -- are you here to play, or to mock me? That's why you're eating dirt.
+025-015 If your kicks and punches are this sloppy, it doesn't matter what moves you use. You're "not cut out for it."
+025-016 Swinging that giant hunk of metal around, you think you'll hit anything? Cool your head and come back!
+025-017 Strategic weapon or not, if it doesn't hit, it's nothing.
+
+# Zato-1 (name 008). Most lines are Eddie's voice; 003 is Zato himself.
+# 000 is in much smaller lettering than the rest.
+026-000 I didn't want to fight you. Not you...
+026-001 Glory was right in front of you. Why not try a little harder? Kekeke! Pardon me, it seems you can't hear me.
+026-002 Bad luck, your opponent. Child or adult, to me you're all one category: "human."
+026-003 Me...! Fo... forgive... me.
+026-004 Ever-changing, you say? Don't make me laugh. That stuff is cat's cradle at best! Kekeke!
+026-005 As no sword can cut flowing water, your prized brawn means nothing before my shadow arts.
+026-006 The darkness spreading before me "sees" you with an endless field of view. Speed is useless!
+026-007 Not bad, for a monkey's imitation...
+026-008 Oh, you've mastered hidden weapons. But it seems I have more variety.
+026-009 I'd rather not think it, but... could you be my "brother"?
+026-010 Several summons from a single body -- surprising. But your attacks are too scattered.
+# Eddie relays the line as Zato's ("I" in quotes); KR leaves the tag out.
+?026-011 I hate women, and brazen hussies like you most of all!! ...So says "I."
+026-012 I enjoyed your "dance" to the full. Though, did you notice it was me making you dance?
+026-013 Nnnnn? I don't hear your usual jokes... Run out of material, or out of consciousness...? Kukuku!
+# KR differs: says the body is in poor shape and can't be watched over long; JP followed.
+026-014 Sorry, but this body suits me nicely. I won't be giving it back for a while yet.
+026-015 Humanoid? Even among parasitic species, I've never seen a type this powerful.
+026-016 Degraded this much in a mere hundred years or so. Truly a feeble existence.
+# KR differs: asks "is your core human??"; JP says it is human, and also something more.
+026-017 Oh...... how intriguing. Your core is human...... and also......
+
+# Baiken (name 009)
+027-000 Lukewarm. Flames that cheap couldn't even grill a fish.
+027-001 Yammer, yammer! Blah, blah! What a tiresome man!! Don't push your fantasies on me!
+027-002 If you don't want to be looked down on for being a kid, quit whining!
+027-003 If you want to beat me, quit posing and fight like your life depends on it.
+027-004 Geez, pecking away from way over there... If you're a man, come at me head-on!
+027-005 Brawn or whatever, I don't care. Big target made it easy.
+027-006 The more moves you throw, the easier your habits are to read. I'm saying you were easy prey!
+027-007 What was the word... right, "narcissist"! Seeing that kind of thing makes my back itch and saps my strength!
+027-008 Not enough resolve...!! It takes more than looks to pass for me!!
+027-009 L-let me take that thing off your head...? I want to see whether you're human.
+027-010 Before you go rattling on, cut that annoying hair. Just looking at it gets on my nerves!
+027-011 If you've got no weapon, at least wear some armor. Not that there's anything this can't cut.
+027-012 I don't mind a guy with backbone. You were weak, though.
+027-013 What, talked so much you can't even manage last words?
+027-014 Hiding it won't help, I can tell. You think dead-fish eyes like those will overpower anyone?
+027-015 What? You want sympathy? You think moping like that your whole life will fix anything?
+027-016 Heh! A single-minded attack. I like it, old man.
+027-017 Hurry up and drop dead, monster.
+
+# No-text pictures in this range: none (all 162 have text).

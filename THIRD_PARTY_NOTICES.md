@@ -1,18 +1,25 @@
 # Third-party notices
 
-This project's own code is under [CC0 1.0](LICENSE). The port in `platforms/`, when it lands, will be under the MIT licence. This file lists what comes from elsewhere: libraries the port uses, code in `src/sdk/` that keeps its upstream terms, tools the build fetches, and credits.
+This project's own code is under [CC0 1.0](LICENSE). The port in `platforms/` is under the [MIT licence](platforms/LICENSE). This file lists what comes from elsewhere: libraries and fonts the port uses, code in `src/sdk/` that keeps its upstream terms, tools the builds fetch, and credits.
 
-## Libraries the port will use (`platforms/`, not here yet)
-
-These will be dependencies fetched by the port's build, not copied into this repository.
+## Libraries in the port's release packages
 
 | Project | Licence | Use |
 | --- | --- | --- |
-| [SDL3](https://github.com/libsdl-org/SDL) | zlib | windowing, input, audio, storage, timing; SDL_GPU for rendering |
-| [SDL_shadercross](https://github.com/libsdl-org/SDL_shadercross) | zlib | shader cross-compilation (SPIR-V, MSL, DXIL) |
-| [GGPO](https://github.com/pond3r/ggpo) | MIT | planned for rollback netcode; not used yet |
+| [SDL3](https://github.com/libsdl-org/SDL) 3.4 | zlib | windowing, input, audio, storage, timing; SDL_GPU for rendering. Linked dynamically: `SDL3.dll` on Windows, `libSDL3.0.dylib` in the macOS app |
+| [wabt](https://github.com/WebAssembly/wabt) 1.0.41's wasm2c runtime (`wasm-rt`) | Apache 2.0 | compiled into every program: the game code runs as C that wasm2c generates |
+| [GNU libiconv](https://www.gnu.org/software/libiconv/) (Windows only) | LGPL 2.1 or later | `libiconv-2.dll`, which MSYS2's `SDL3.dll` needs; linked dynamically and unmodified, from MSYS2's `mingw-w64-ucrt-x86_64-libiconv` 1.19-1 package. Its source is GNU libiconv 1.19 (<https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.19.tar.gz>) with MSYS2's build recipe (<https://github.com/msys2/MINGW-packages/tree/master/mingw-w64-libiconv>) |
 
-Binary releases of the port will include each library's licence text next to the executable.
+Each package carries these licence texts: in `licenses\` beside the programs on Windows, and in `GGX Plus.app/Contents/Resources/licenses/` on macOS.
+
+## Fonts in `platforms/text/fonts/`
+
+The English text layer draws with two fonts, subset to the characters English needs and shipped in every package. Each keeps its licence text beside it.
+
+| Font | Licence | Licence text |
+| --- | --- | --- |
+| DejaVu Serif 2.35 | DejaVu fonts licence (Bitstream Vera terms; DejaVu changes are public domain) | `platforms/text/fonts/LICENSE-DejaVu.txt` |
+| Noto Sans 2.000, Copyright 2015 Google Inc. | SIL Open Font License 1.1 | `platforms/text/fonts/LICENSE-NotoSans-OFL.txt` |
 
 ## Code vendored in `platforms/third_party/`
 
@@ -26,11 +33,12 @@ The port reads CHD disc images with [libchdr](https://github.com/rtissera/libchd
 | Zstandard 1.5.7 (single-file decoder) | BSD (zstd is dual BSD/GPLv2; used under BSD) | `deps/zstd-1.5.7/LICENSE` |
 | dr_flac | public domain or MIT-0 | end of `include/dr_libs/dr_flac.h` |
 
-The State Hash (`games/ggx-port/STATE-HASH.md`) uses [xxHash](https://github.com/Cyan4973/xxHash) 0.8.3's `xxhash.h`, copied unchanged into `platforms/third_party/xxhash/`.
+The State Hash (`platforms/common/host/core_state.h`) uses [xxHash](https://github.com/Cyan4973/xxHash) 0.8.3's `xxhash.h`, copied unchanged into `platforms/third_party/xxhash/`. The text layer draws with [stb_truetype](https://github.com/nothings/stb) 1.26, copied unchanged into `platforms/third_party/stb/`.
 
 | Project | Licence | Licence text |
 | --- | --- | --- |
 | xxHash 0.8.3 (`xxhash.h`) | BSD 2-Clause | `platforms/third_party/xxhash/LICENSE` |
+| stb_truetype 1.26 | MIT or public domain, as the user chooses | `platforms/third_party/stb/LICENSE` |
 
 ## Code in `src/sdk/` under its own terms
 
@@ -94,6 +102,8 @@ Nothing below is stored in this repository.
 | splat64, spimdisasm, rabbitizer | MIT | PyPI ([ethteck/splat](https://github.com/ethteck/splat), [Decompollaborate](https://github.com/Decompollaborate)) |
 | pyelftools | Public domain | PyPI |
 | qemu-user (to run the i386 compiler on other hosts) | GNU GPL | the host's packages |
+| wasi-sdk 34.0 (clang and wasm-ld, the port's Core compiler) | Apache 2.0 with LLVM exception | [WebAssembly/wasi-sdk](https://github.com/WebAssembly/wasi-sdk), downloaded by `platforms/cmake/CoreToolchain.cmake` |
+| wabt 1.0.41 (`wasm2c`) | Apache 2.0 | [WebAssembly/wabt](https://github.com/WebAssembly/wabt), downloaded and built by `platforms/cmake/Wabt.cmake` |
 
 ## Credits
 

@@ -22,7 +22,14 @@ int MeterColorChange(int col)
     old = meter_color[meter_index];
     meter_time[meter_index] = *(volatile int *)0x10000000;
     meter_index++;
+#ifdef GGX_PORT
+    /* The 256th change in a field writes meter_color[256], one past the array: meter_time[0], which follows it
+       on both discs. The Core keeps both at their PS2 addresses, so the port makes the same write through the
+       address, without the out-of-bounds subscript (UBSan, PORT-015). */
+    *(int *)((unsigned int)meter_color + (unsigned int)meter_index * 4u) = col;
+#else
     meter_color[meter_index] = col;
+#endif
     return old;
 }
 
