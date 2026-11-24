@@ -405,7 +405,7 @@ endforeach()
 
 # PORT-010: the pad shim's bytes against every pad read in the Lockstep Trace corpus, and GGScript; no disc
 add_executable(ggx-pad-test tests/input/pad_test.c)
-target_link_libraries(ggx-pad-test PRIVATE ggx_host)
+target_link_libraries(ggx-pad-test PRIVATE ggx_host psi_core)
 if(MSVC)
   target_compile_options(ggx-pad-test PRIVATE /W4)
 else()
@@ -461,6 +461,25 @@ option(GGX_DEV_BUILD "A developer build of ggx: Tab runs the Core unthrottled" O
 if(GGX_SDL)
   find_package(SDL3 3.2 CONFIG)
 endif()
+
+# game-kit (https://github.com/uppercut-labs/game-kit): the input layer (port-sdl-input: devices, players, bindings,
+# SOCD, analog, remap capture, prompt letters) and the settings file (port-settings), each at a release tag. The
+# port's own part is sdl/input.c (its buttons as data, the macros, the confirm swap). Offline: set
+# -DFETCHCONTENT_SOURCE_DIR_PORT_SDL_INPUT and -DFETCHCONTENT_SOURCE_DIR_PORT_SETTINGS to a game-kit checkout.
+# The headless programs build without SDL, so port-sdl-input is not required to find it here: ggx needs it.
+include(FetchContent)
+set(PSI_REQUIRE_SDL OFF)
+FetchContent_Declare(port_settings
+  GIT_REPOSITORY https://github.com/uppercut-labs/game-kit.git
+  GIT_TAG        port-settings@0.1.0
+  GIT_SHALLOW    TRUE
+  SOURCE_SUBDIR  packages/port-settings)
+FetchContent_Declare(port_sdl_input
+  GIT_REPOSITORY https://github.com/uppercut-labs/game-kit.git
+  GIT_TAG        port-sdl-input@0.1.0
+  GIT_SHALLOW    TRUE
+  SOURCE_SUBDIR  packages/port-sdl-input)
+FetchContent_MakeAvailable(port_settings port_sdl_input)
 # the renderer's input side, no SDL: the GIF stream, GS local memory, textures
 add_library(ggx_dl STATIC render/gs_mem.c render/dl_tex.c render/dl_stream.c)
 target_include_directories(ggx_dl PUBLIC render common/input)
@@ -512,10 +531,10 @@ add_dependencies(port ggx-prompts-test)
 set(PORT_TARGETS ggx_dl ggx_text ggx-text ggx-gs-path-test ggx_prompts ggx-prompts-test ggx-pace-test)
 if(SDL3_FOUND)
   # PORT-010: the input layer and the settings file
-  add_executable(ggx sdl/ggx_main.c sdl/firstrun.c sdl/png_write.c sdl/input.c sdl/config.c sdl/audio_out.c sdl/settings.c
+  add_executable(ggx sdl/ggx_main.c sdl/firstrun.c sdl/png_write.c sdl/input.c sdl/audio_out.c sdl/settings.c
     sdl/pace.c sdl/vblank.c render/dl_gpu.c text/tl_host.c)
   target_include_directories(ggx PRIVATE sdl)
-  target_link_libraries(ggx PRIVATE ggx_host ggx_audio ggx_prompts ggx_text SDL3::SDL3)
+  target_link_libraries(ggx PRIVATE ggx_host ggx_audio ggx_prompts ggx_text psi pset SDL3::SDL3)
   # the display's vblanks (sdl/vblank.c): the kernel's per-output wait (gdi32) or DXGI's, on Windows
   if(WIN32)
     target_link_libraries(ggx PRIVATE dxgi dxguid gdi32 user32)
@@ -554,18 +573,18 @@ if(SDL3_FOUND)
   add_dependencies(port ggx)
   # the input layer with SDL's virtual controllers: no window, GPU or disc
   # PORT-019/020: the settings panel driven by pad presses, its neighbours stubbed (no window, disc or Core)
-  add_executable(ggx-settings-test tests/settings/settings_test.c sdl/settings.c sdl/config.c common/input/confirm.c)
+  add_executable(ggx-settings-test tests/settings/settings_test.c sdl/settings.c common/input/confirm.c)
   # core_host.h's headers, ggx_core.h (made by wasm2c) among them, without ggx_host's objects (the stubs stand in)
   target_include_directories(ggx-settings-test PRIVATE sdl prompts text render
     $<TARGET_PROPERTY:ggx_host,INTERFACE_INCLUDE_DIRECTORIES> $<TARGET_PROPERTY:ggx_core,INTERFACE_INCLUDE_DIRECTORIES>)
   add_dependencies(ggx-settings-test ggx_core)
-  target_link_libraries(ggx-settings-test PRIVATE ggx_assets SDL3::SDL3)
+  target_link_libraries(ggx-settings-test PRIVATE ggx_assets pset psi_core SDL3::SDL3)
   add_test(NAME settings COMMAND ggx-settings-test "${CMAKE_CURRENT_BINARY_DIR}")
   add_dependencies(port ggx-settings-test)
-  add_executable(ggx-input-test tests/input/input_test.c sdl/input.c sdl/config.c common/input/pad.c
+  add_executable(ggx-input-test tests/input/input_test.c sdl/input.c common/input/pad.c
     common/input/macro.c common/input/confirm.c)
   target_include_directories(ggx-input-test PRIVATE sdl common/input common/assets)
-  target_link_libraries(ggx-input-test PRIVATE ggx_assets SDL3::SDL3)
+  target_link_libraries(ggx-input-test PRIVATE ggx_assets psi pset SDL3::SDL3)
   add_test(NAME input-layer COMMAND ggx-input-test "${CMAKE_CURRENT_BINARY_DIR}")
   list(APPEND PORT_TARGETS ggx-input-test)
   add_dependencies(port ggx-input-test)
