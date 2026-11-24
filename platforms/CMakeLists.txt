@@ -28,6 +28,16 @@ set(PLAT "${CMAKE_CURRENT_SOURCE_DIR}")
 set(GEN "${CMAKE_CURRENT_BINARY_DIR}/gen")
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
 
+# The PNG writer for frame dumps is minimal-png from game-kit, pinned to its release tag. To build offline against a
+# checkout, pass -DFETCHCONTENT_SOURCE_DIR_MINIMAL_PNG=<a game-kit checkout>.
+include(FetchContent)
+FetchContent_Declare(minimal_png
+  GIT_REPOSITORY https://github.com/uppercut-labs/game-kit.git
+  GIT_TAG        minimal-png@0.1.0
+  GIT_SHALLOW    TRUE
+  SOURCE_SUBDIR  packages/minimal-png)
+FetchContent_MakeAvailable(minimal_png)
+
 include(cmake/CoreToolchain.cmake)
 include(cmake/Wabt.cmake)
 
@@ -479,7 +489,7 @@ set_source_files_properties(text/tl_stb.c PROPERTIES COMPILE_OPTIONS "$<IF:$<C_C
 add_executable(ggx-text text/text_main.c text/tl_host.c sdl/png_write.c)
 target_include_directories(ggx-text PRIVATE sdl)
 target_compile_definitions(ggx-text PRIVATE GGX_TEXT_SOURCE_DIR="${PLAT}/text")
-target_link_libraries(ggx-text PRIVATE ggx_host ggx_text)
+target_link_libraries(ggx-text PRIVATE ggx_host ggx_text mpng)
 # copied on every build, so an edited translation file is picked up
 add_custom_target(ggx-text-data ALL
   COMMAND ${CMAKE_COMMAND} -E copy_directory "${PLAT}/text/en" "${CMAKE_CURRENT_BINARY_DIR}/text/en"
@@ -515,7 +525,7 @@ if(SDL3_FOUND)
   add_executable(ggx sdl/ggx_main.c sdl/firstrun.c sdl/png_write.c sdl/input.c sdl/config.c sdl/audio_out.c sdl/settings.c
     sdl/pace.c sdl/vblank.c render/dl_gpu.c text/tl_host.c)
   target_include_directories(ggx PRIVATE sdl)
-  target_link_libraries(ggx PRIVATE ggx_host ggx_audio ggx_prompts ggx_text SDL3::SDL3)
+  target_link_libraries(ggx PRIVATE ggx_host ggx_audio ggx_prompts ggx_text mpng SDL3::SDL3)
   # the display's vblanks (sdl/vblank.c): the kernel's per-output wait (gdi32) or DXGI's, on Windows
   if(WIN32)
     target_link_libraries(ggx PRIVATE dxgi dxguid gdi32 user32)
