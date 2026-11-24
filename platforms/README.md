@@ -123,6 +123,11 @@ CMake finds SDL3 3.2 or later (`-DGGX_SDL=OFF` skips it). The shaders are
 precompiled in `render/shaders/dl_shaders.h`, so no shader compiler is
 needed. `ctest --test-dir build-KR` runs the tests that need no disc.
 
+The input layer and the settings file are [game-kit](https://github.com/uppercut-labs/game-kit)'s
+`port-sdl-input` and `port-settings`, which CMake fetches at a release tag when it configures (it needs git and
+network then; for an offline build point `-DFETCHCONTENT_SOURCE_DIR_PORT_SDL_INPUT` and
+`-DFETCHCONTENT_SOURCE_DIR_PORT_SETTINGS` at a game-kit checkout).
+
 - **Windows:** MSYS2 UCRT64 (`mingw-w64-ucrt-x86_64-{clang,lld,cmake,ninja,python,sdl3}`),
   with `-DCMAKE_C_COMPILER=clang`. The build copies `SDL3.dll` beside
   `ggx.exe` with every DLL it needs from MSYS2, so `ggx.exe` starts from a
@@ -182,7 +187,7 @@ lists and describes replays, and `ggx-replay` replays a Lockstep Trace.
 | `common/shims/` | the PS2 SDK shims |
 | `common/trace/` | Lockstep Traces: the reader and replay, the SDK call ids, the symbol maps and masks |
 | `common/saves/` | saves: the native format and the export check, PS2 memory card images, `ggx-save` |
-| `common/input/` | the pads as libpad delivers them, GGScript, macros, the confirm button |
+| `common/input/` | the pads as libpad delivers them, GGScript, macros, the confirm button's names |
 | `render/` | the renderer: the GIF stream and the GS Path, GS local memory, the texture cache, SDL_GPU and the shaders |
 | `audio/` | the sound driver: the command stream, SNDRV.IRX, the SPU2 model, `ggx-snd` |
 | `sdl/` | `ggx`, the SDL3 program: the window, first run, input, settings, display pacing, speakers |

@@ -31,6 +31,8 @@
 #include "pad.h"
 #include "trace.h"
 
+#include "psi/pad.h"
+
 #ifdef _WIN32
 #include <windows.h>
 #else
@@ -284,12 +286,17 @@ static void check_macros(void)
     CHECK(!strcmp(macro_name(MACRO_P_K_S_HS), "P K S HS"), "names as KEY CONFIG writes them");
 }
 
-/* PORT-019: X confirms in menus; a press keeps its meaning until released */
+/* PORT-019: X confirms in menus; a press keeps its meaning until released (the swap is port-sdl-input's) */
+static uint16_t confirm_apply(PsiSwapLatch *l, uint16_t buttons, int swap)
+{
+    return (uint16_t)psi_swap_apply(l, buttons, PAD_CROSS, PAD_CIRCLE, swap);
+}
+
 static void check_confirm(void)
 {
-    ConfirmLatch l;
+    PsiSwapLatch l;
 
-    confirm_reset(&l);
+    psi_swap_reset(&l);
     CHECK(confirm_parse("X") == CONFIRM_X && confirm_parse("circle") == CONFIRM_CIRCLE && confirm_parse("cross") < 0,
           "confirm_parse");
     /* not in a menu: as pressed */
@@ -313,7 +320,7 @@ static void check_confirm(void)
         PadInput p;
         uint8_t b[32];
 
-        confirm_reset(&l);
+        psi_swap_reset(&l);
         pad_clear(&p);
         p.buttons = confirm_apply(&l, PAD_CROSS, 1);
         pad_encode(&p, b);

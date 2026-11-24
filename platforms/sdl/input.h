@@ -1,6 +1,9 @@
 /* ggx's input layer (PORT-010): SDL3 keyboards, gamepads and joysticks
  * (arcade sticks) to the two PS2 pads, as libpad delivers them
- * (common/input/pad.h).
+ * (common/input/pad.h). The devices, bindings, SOCD, analog, remap capture and
+ * prompt letters are port-sdl-input's (game-kit); input.c is ggx's part: its
+ * buttons and macros as data, the macros' bits from the game's KEY CONFIG, the
+ * confirm swap, the PS2 pad's bytes and rumble.
  *
  * - Players. Each player has bindings for the sixteen PS2 buttons: keys,
  *   which belong to that player, and gamepad or joystick inputs, which apply
@@ -117,6 +120,10 @@ int input_last_player(const Input *in);
 
 /* A gamepad's family from what SDL knows of it (exported for the tests). */
 InputFamily input_gamepad_family(SDL_GamepadType type, Uint16 vendor, Uint16 product, int steam_virtual);
+
+/* For the tests: only SDL's virtual controllers become devices, so a real pad
+   on the test machine never takes a player. Set before input_new. */
+void input_only_virtual(int on);
 
 /* Running on a Steam Deck (Steam's SteamDeck=1, or the Deck's DMI name). */
 int input_on_steam_deck(void);
