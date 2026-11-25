@@ -1,0 +1,47 @@
+{
+  "packages": [
+    {
+      "name": "ee-gcc2.9-991111",
+      "url": "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.9-991111.tar.xz",
+      "sha256": "99cb5db603cd985b50fc6851157020ad69489f2227309ccf825bd43ac7bc19dd",
+      "files": {
+        "lib/gcc-lib/ee/2.9-ee-991111/cc1": "548c962776e6d01ea0e83a08dc8ea99b87eb7b77bcfd2350d5bce7dc9395398d",
+        "lib/gcc-lib/ee/2.9-ee-991111/cpp": "260a2ae5d55d223539be9f4a09a9890a1bc12bcdccf50e015d95e581089df499",
+        "ee/bin/as": "82e98546816d6d97ede5cda29deff86bb0c93b9fa456dd6a50520475bee39ff3"
+      }
+    },
+    {
+      "name": "ee-gcc2.9-991111-01",
+      "url": "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.9-991111-01.tar.xz",
+      "sha256": "ed684fd98f89d36b0121caab311052089103e3b36241fcef4338cc9ea41c75b8",
+      "files": {
+        "ee/bin/as": "296af123052ee39d175e5b3254102aafca105d4f6e975b351a13867f59b04019"
+      }
+    },
+    {
+      "name": "ee-gcc2.96",
+      "url": "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz",
+      "sha256": "0590d2ca9da8f5903889d66761220d14b47a8d14ba987ca53db84a1650a1fd0a",
+      "files": {
+        "ee/bin/as": "b8cfdb6ecb6931642914020f92a62e653378f57230eed4895f69afa050d47b5e"
+      }
+    },
+    {
+      "name": "binutils",
+      "hosts": {
+        "linux-x86-64": {
+          "url": "https://github.com/decompals/binutils-mips-ps2-decompals/releases/download/v0.10/binutils-mips-ps2-decompals-linux-x86-64.tar.gz",
+          "sha256": "9fe31ea3ee1a37536f9f0e2e12c668e7c3cb99e59f5154bd2f1fc4762473094c"
+        },
+        "macos-arm64": {
+          "url": "https://github.com/decompals/binutils-mips-ps2-decompals/releases/download/v0.10/binutils-mips-ps2-decompals-macos-arm64.tar.gz",
+          "sha256": "948cc736e01b2c135168caabfb616f6ed8efe89f1dad1ed8ef1ca74acb1b742c"
+        },
+        "windows-x86-64": {
+          "url": "https://github.com/decompals/binutils-mips-ps2-decompals/releases/download/v0.10/binutils-mips-ps2-decompals-windows-x86-64.zip",
+          "sha256": "2bb5904ee174e04f1600cc70ffdb3dc36b0efa4d1892ea446be588ba8dc6198c"
+        }
+      }
+    }
+  ]
+}
